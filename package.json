@@ -3,22 +3,52 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
+    "serve": "vite preview",
+    "build": "vite build",
+    "lint": "vue-cli-service lint",
+    "dev": "vite"
   },
   "dependencies": {
-    "core-js": "^3.8.3",
-    "vue": "^3.2.13"
+    "@mdi/font": "5.9.55",
+    "atropos": "^2.0.2",
+    "axios": "^1.5.0",
+    "core-js": "^3.32.0",
+    "glider-js": "^1.7.8",
+    "roboto-fontface": "*",
+    "sass": "^1.67.0",
+    "scss": "^0.2.4",
+    "tailwindcss-animated": "^1.0.1",
+    "vue": "^3.2.13",
+    "vue-agile": "^2.0.0",
+    "vue-carousel-3d": "^1.0.1",
+    "vue-class-component": "^8.0.0-0",
+    "vue-router": "^4.0.3",
+    "vue-sweetalert2": "^5.0.5",
+    "vuetify": "npm:@vuetify/nightly@^3.3.0",
+    "vuex": "^4.0.0",
+    "webfontloader": "^1.0.0"
   },
   "devDependencies": {
     "@babel/core": "^7.12.16",
     "@babel/eslint-parser": "^7.12.16",
+    "@typescript-eslint/eslint-plugin": "^5.4.0",
+    "@typescript-eslint/parser": "^5.4.0",
+    "@vitejs/plugin-vue": "^3.0.3",
     "@vue/cli-plugin-babel": "~5.0.0",
     "@vue/cli-plugin-eslint": "~5.0.0",
+    "@vue/cli-plugin-router": "^5.0.8",
+    "@vue/cli-plugin-typescript": "^5.0.8",
+    "@vue/cli-plugin-vuex": "^5.0.8",
     "@vue/cli-service": "~5.0.0",
+    "@vue/eslint-config-typescript": "^9.1.0",
     "eslint": "^7.32.0",
-    "eslint-plugin-vue": "^8.0.3"
+    "eslint-plugin-vue": "^8.0.3",
+    "tailwindcss": "^0.6.1",
+    "typescript": "~4.5.5",
+    "vite": "^3.0.8",
+    "vite-plugin-vuetify": "^1.0.0-alpha.12",
+    "vue-cli-plugin-tailwindcss": "~0.1.1",
+    "vue-cli-plugin-vuetify": "~2.5.8"
   },
   "eslintConfig": {
     "root": true,
@@ -27,10 +57,11 @@
     },
     "extends": [
       "plugin:vue/vue3-essential",
-      "eslint:recommended"
+      "eslint:recommended",
+      "@vue/typescript"
     ],
     "parserOptions": {
-      "parser": "@babel/eslint-parser"
+      "parser": "@typescript-eslint/parser"
     },
     "rules": {}
   },
