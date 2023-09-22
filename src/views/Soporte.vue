@@ -1,19 +1,12 @@
+<script setup lang="ts">
+    import { ref,onMounted} from 'vue';
+</script>
 <template>
     <Header/>
+    
+    
+
 </template>
 
-<script lang="ts">
-    import Header from '@/components/Header.vue';
-
-    export default{
-        name: "SoporteView",
-        components:{
-            Header
-        },
-        data(){
-            return{
-                
-            }
-        }
-    }
-</script>
+<style lang="scss">
+</style>
