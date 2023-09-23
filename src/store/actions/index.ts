@@ -20,6 +20,17 @@ const actions = {
           resolve();
         });
       },
+      verifySession({commit}: {commit: Commit}){
+        return new Promise((resolve,reject)=>{
+          const token = localStorage.getItem('token');
+
+          if(!token){
+            commit('clearAuth');
+          }
+
+          resolve();
+        });
+      },
       register({commit}: { commit: Commit }, data:Object){
         return new Promise((resolve,reject) => {
           axiosInstance.post('/register',data).then(() => {
