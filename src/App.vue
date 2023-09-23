@@ -6,14 +6,14 @@
   </router-view>
 </template>
 
-<script lang="ts">
-import { Options, Vue } from 'vue-class-component';
+<script setup lang="ts">
+import { ref, onMounted } from 'vue';
+import { useStore } from 'vuex';
 
-@Options({
-  components: {
-  }
-})
-export default class App extends Vue {}
+const store = useStore();
+onMounted(async ()=>{
+  await store.dispatch('verifySession');
+});
 </script>
 
 <style>
