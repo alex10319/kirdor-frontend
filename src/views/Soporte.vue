@@ -22,13 +22,12 @@
                     <div class="description-content limited">
                         <div class="description-links">
                             <span class="description-links-assist">Asistencia Personal</span>
-                            <span class="description-links-assist">Asistencia de Cuenta</span>
-
                             <input type="search" placeholder="¿Con qué podemos ayudarte?" class="description-search">
+                            <span class="description-links-assist">Asistencia de Cuenta</span>
                         </div>
                         <div class="description-paragraph">
                             <span class="span">Breve descripción:</span>
-                            <span class="span">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque laboriosam id pariatur quae. Ab quae rem rerum eaque, maiores, ipsum iste dolore ipsa accusamus nulla quos quo expedita unde animi quod id doloribus qui ex, facere nemo sunt molestiae atque enim sint. Nulla sunt natus autem odio nam, consequatur nemo minus eos labore obcaecati! Quisquam quaerat totam debitis voluptatibus placeat nihil dolorum voluptatem, commodi excepturi in quo perspiciatis necessitatibus veniam pariatur vitae praesentium iure quibusdam consequatur quas beatae recusandae est similique! Rerum distinctio exercitationem non voluptatum accusamus nulla quos, aliquid quaerat maiores omnis blanditiis similique obcaecati odit maxime officiis tenetur!</span>
+                            <span class="span"> Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus, totam harum neque doloremque sequi consequatur eius ratione saepe reprehenderit, repellendus soluta quod vitae corporis maxime, quaerat est! Officia illum quo nihil labore similique, soluta obcaecati aliquam ad atque! Id odio rem, temporibus nostrum laborum corrupti. Quibusdam sapiente unde deleniti neque! </span>
                         </div>
                     </div>
                 </div>
@@ -169,6 +168,7 @@
         outline: none;
         font-size: 16px;
         text-shadow: 1px 1px 3px #000;
+        text-align: center;
     }
     .description-paragraph{
         background-color: rgba(40, 40, 40, 1);
