@@ -9,10 +9,19 @@
 <script setup lang="ts">
 import { ref, onMounted } from 'vue';
 import { useStore } from 'vuex';
+import router from './router';
 
 const store = useStore();
-onMounted(async ()=>{
-  await store.dispatch('verifySession');
+onMounted(async () => {
+  const myToken = localStorage.getItem('token');
+
+  if(myToken){
+    try{
+      await store.dispatch('verifySession');
+    }catch(e:any){
+      router.push('/login');
+    }
+  }
 });
 </script>
 

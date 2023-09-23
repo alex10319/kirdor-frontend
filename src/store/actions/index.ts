@@ -23,12 +23,22 @@ const actions = {
       verifySession({commit}: {commit: Commit}){
         return new Promise((resolve,reject)=>{
           const token = localStorage.getItem('token');
+          const user = localStorage.getItem('user');
+          const isAuthenticated = localStorage.getItem('isAuthenticated');
 
-          if(!token){
-            commit('clearAuth');
+          // token -> hay token?
+          // !token -> no hay token?
+          if(!token || !user || !isAuthenticated){
+            commit('clearAuth'); // <- le borra la sesión!
+            reject();
           }
 
-          resolve();
+          axiosInstance.post('/verifyToken').then(()=>{
+            resolve();
+          }).catch((e) => {
+            commit('clearAuth');
+            reject(new Error('Token inválido, hackea a tu vieja pvto.'));
+          })
         });
       },
       register({commit}: { commit: Commit }, data:Object){
