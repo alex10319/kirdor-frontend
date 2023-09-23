@@ -22,12 +22,31 @@
                     <div class="description-content limited">
                         <div class="description-links">
                             <span class="description-links-assist">Asistencia Personal</span>
-                            <input type="search" placeholder="¿Con qué podemos ayudarte?" class="description-search">
+                            <input type="search" placeholder="¿Con qué necesitas ayuda?" class="description-search">
                             <span class="description-links-assist">Asistencia de Cuenta</span>
                         </div>
-                        <div class="description-paragraph">
-                            <span class="span">Breve descripción:</span>
-                            <span class="span"> Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus, totam harum neque doloremque sequi consequatur eius ratione saepe reprehenderit, repellendus soluta quod vitae corporis maxime, quaerat est! Officia illum quo nihil labore similique, soluta obcaecati aliquam ad atque! Id odio rem, temporibus nostrum laborum corrupti. Quibusdam sapiente unde deleniti neque! </span>
+                        <div class="description-toggle">
+                            <div class="description-toggle-side-left">
+                                <span class="toggle-item">Nuevas Noticias</span>
+                                <span class="toggle-item">Detalles</span>
+                                <span class="toggle-item">Ayuda Técnica</span>
+                                <span class="toggle-item">Errores Recientes</span>
+                                <span class="toggle-item">Correcciones</span>
+                                <span class="toggle-item">Errores Visuales</span>
+                                <span class="toggle-item">Asistencia Rápida</span>
+                            </div>
+                            <div class="description-toggle-side">
+                                <span class="toggle-item">Visualizador de Contenido</span>
+                            </div>
+                            <div class="description-toggle-side-right">
+                                <span class="toggle-item">Iniciar Sesión</span>
+                                <span class="toggle-item">Nuevos Registro</span>
+                                <span class="toggle-item">Publicaciones</span>
+                                <span class="toggle-item">Participar en Torneos</span>
+                                <span class="toggle-item">Información</span>
+                                <span class="toggle-item">Detalles de Usuario</span>
+                                <span class="toggle-item">Ayuda Comunidad</span>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -134,7 +153,7 @@
     }
     .description-content{
         width: 100%;
-        height: 100px;
+        min-height: 100px;
         display: flex;
         flex-direction: column;
         padding: 0.5rem 1rem;
@@ -157,6 +176,10 @@
         border-bottom: 3px solid var(--color-primary);
         cursor: pointer;
         min-width: max-content;
+        transition: all 0.25s ease-in-out;
+    }
+    .description-links-assist:hover{
+         color: #dddddd;
     }
     .description-search{
         background-color: rgba(40, 40, 40, 1);
@@ -170,21 +193,112 @@
         text-shadow: 1px 1px 3px #000;
         text-align: center;
     }
-    .description-paragraph{
-        background-color: rgba(40, 40, 40, 1);
-        padding: 1rem;
-        border-radius: 6px;
-        text-align: justify;
+    .description-search[placeholder]{
+        color: #bdbdbd;
+        font-size: 16px;
+        font-weight: 500;
+        letter-spacing: 1px;
+        text-shadow: 1px 1px 3px #000;
+        fill: #fff;
+    }
+    .description-toggle{
         display: flex;
-        flex-direction: column;
-        gap: 0.25rem;
-        .span{
-            color: #ddd;
-            font-size: 18px;
-            font-weight: 500;
-            line-height: 22px;
+        justify-content: space-between;
+        gap: 1rem;
+        margin-bottom: 1rem;
+
+        .description-toggle-side-left{
+            border-top: 3px solid var(--color-primary);
+            min-width: 195px;
+            width: 195px;
+            max-width: 195px;
+            padding: 1rem 0rem;
+            background-color: rgba(42, 42, 42, 1);
+            border-radius: 6px;
+            min-height: 300px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .description-toggle-side{
+            padding: 0.5rem 0rem;
+            background-color: rgba(42, 42, 42, 1);
             width: 100%;
-            
+            border-top: 3px solid var(--color-primary);
+            border-radius: 6px;
+            display: grid;
+            place-items: center;
+        }
+        .description-toggle-side-right{
+            min-width: 205px;
+            width: 205px;
+            max-width: 205px;
+            padding: 1rem 0rem;
+            background-color: rgba(42, 42, 42, 1);
+            border-top: 3px solid var(--color-primary);
+            border-radius: 6px;
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+    }
+    
+    .description-toggle-side-left{
+        .toggle-item{
+            min-width: 168px;
+            padding: 0.25rem 0rem;
+            border-radius: 6px;
+            color: #bdbdbd;
+            font-size: 16px;
+            font-weight: 500;
+            letter-spacing: 1px;
+            text-shadow: 1px 1px 3px #000;
+            cursor: pointer;
+            text-align: left;
+            transition: all 0.25s ease-in-out;
+        }
+        .toggle-item:hover{
+            color: #F9F9F9;
+        }
+    }
+
+    .description-toggle-side-right{
+        .toggle-item{
+            min-width: 150px;
+            padding: 0.25rem 0rem;
+            padding-right: 1rem;
+            border-radius: 6px;
+            color: #bdbdbd;
+            font-size: 16px;
+            font-weight: 500;
+            letter-spacing: 1px;
+            text-shadow: 1px 1px 3px #000;
+            cursor: pointer;
+            text-align: right;
+            transition: all 0.25s ease-in-out;
+        }
+        .toggle-item:hover{
+            color: #F9F9F9;
+        }
+    }
+
+    .description-toggle-side{
+        .toggle-item{
+            min-width: 168px;
+            padding: 0.25rem 0rem;
+            border-radius: 6px;
+            color: #bdbdbd;
+            font-size: 16px;
+            font-weight: 500;
+            letter-spacing: 1px;
+            text-shadow: 1px 1px 3px #000;
+            cursor: pointer;
+            text-align: center;
+            transition: all 0.25s ease-in-out;
+        }
+        .toggle-item:hover{
+            color: #F9F9F9;
         }
     }
     
