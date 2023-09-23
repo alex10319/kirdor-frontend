@@ -28,7 +28,7 @@ const actions = {
         });
       },
       uploadPublication({commit}: { commit: Commit }, data: FormData){
-        return new Promise((resolve,reject)=>{
+        return new Promise((resolve,reject) => {
           axiosInstance.post('/uploadPublication',data).then((response:any)=>{
             const publication = response.data.publication;
             resolve(publication);
