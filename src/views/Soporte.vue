@@ -2,13 +2,26 @@
     import { ref, onMounted } from  'vue';
 
     import Header from '@/components/Header.vue';
+    import Footer from '@/components/Footer.vue';
     import router from '@/router';
 
-const descriptionActive = ref(false);
+    const descriptionActive = ref<Boolean>(true);
+    const name = ref<string | null>(null); // <-- String para texto, number para numeros, object para objetos array para arrays...
+    // puede ser string | <- esto significa o. entonces: puede ser string | null (puede ser string o null);
+    const lastname = ref<string | null>(null);
 
-const toggleDescription = () => {
-    descriptionActive.value = !descriptionActive.value;
-};
+    const toggleDescription = () => {
+        descriptionActive.value = !descriptionActive.value;
+    };
+
+    const enviarForm = () => {
+      const form = {
+        name: name.value,
+        lastname: lastname.value
+      }
+
+      console.log(form);
+    };
 
 </script>
 
@@ -19,12 +32,12 @@ const toggleDescription = () => {
             <!-- Limited General Content -->
             <div class="support-container">
                 <!-- Presentation -->
-                <div class="support-presentation">
+                <!-- <div class="support-presentation">
                     <div class="presentation-content">
                         <h1 class="description-title">Bienvenidos a nuestra sección de soporte</h1>
                         <h2 class="description-subtitle">Aquí podrás conseguir información detallada y asistencia personal<br><span>Aprovecha nuestra comunidad para obtener ayuda</span></h2>
                     </div>
-                </div>
+                </div> -->
 
                 <!-- Minslide -->
                 <div class="support-search">
@@ -58,11 +71,13 @@ const toggleDescription = () => {
                                     <span class="span">Nuestras Noticias Actualizadas</span>
                                     <span class="span">Información actual del Soporte de Kirdor</span>
                                 </div>
-                                <div class="description-toggle-info" :class="{ 'active': descriptionActive }">
+                                <div class="description-toggle-info" :class="{ 'active': !descriptionActive }">
                                     <span class="span">Los saluda el soporte técnico de Kirdor, primero que nada queremos decirles que estamos disponibles y dispuestos para ayudarlos en cualquier situación o problema que se les presente a todos los usuarios y/o navegadores de nuestro sitio web. Aclaramos que nuestra ayuda se presenta en forma escrita y en caso de que los problemas persistan y necesiten una asistencia personalizada para solucionar estos mismos también contamos con un servicio de atención manejado por los administradores del Soporte de Kirdor.</span>
                                 </div>
                                 <div class="description-toggle-info-2">
-                                    <span class="span" @click="toggleDescription">Leer más</span>
+                                    <span class="span" @click="toggleDescription">
+                                    {{ (descriptionActive)?'Ver más':'Ver menos' }}
+                                    </span>
                                     <span class="hr"></span>
                                 </div>
 
@@ -199,21 +214,112 @@ const toggleDescription = () => {
                         </div>
                     </div>
                 </div>
-            
+
+                <!-- Mincontainer -->
+                <div class="separator-container"></div>
+                <!-- Mincontainer -->
+                <div class="support__form--container">
+                    <div class="support__form--content limited">
+                        <v-form @submit.prevent="enviarForm" class="support__content--form">
+                            <div class="shadow-md rounded px-8 pt-6 pb-8 mb-4 flex flex-col">
+                                <div class="-mx-3 md:flex">
+                                  <div class="md:w-1/2 px-3 md:mb-0">
+                                    <v-text-field 
+                                    v-model="name"
+                                    label="Ingresa tu nombre.." class="text-white" color="warning" />
+                                    <!-- <textarea></textarea>
+                                    <v-textarea></v-textarea> -->
+                                  <div>
+                                </div>
+                                </div>
+                                <div class="md:w-1/2 px-3">
+                                  <v-text-field label="Apellido..."
+                                  v-model="lastname"
+                                  class="text-white" color="warning"/>
+                                </div>
+                                </div>
+                                <div class="-mx-3 md:flex mb-6">
+                                <div class="md:w-full px-3">
+                                    <v-textarea label="Mensaje..." class="text-white" color="warning"/>
+                                </div>
+                                </div>
+                                <div class="-mx-3 md:flex mb-2">
+                                <div class="md:w-1/2 px-3 mb-6 md:mb-0">
+                                  <v-select color="warning" class="text-white" label="Selecciona un elemento..."
+                                  :items="[
+                                    {title: 'Ayuda random',value: 1}, 
+                                    {title: 'Ayuda random 2',value: 2},
+                                    {title: 'Ayuda random 3',value: 3}, 
+                                    {title: 'Ayuda random 4',value: 4}
+                                  ]"
+                                  />
+                                </div>
+                                <div class="md:w-1/2 px-3">
+                                    <label class="uppercase tracking-wide text-white text-xs font-bold mb-2" for="job-type">
+                                    Job Type*
+                                    </label>
+                                    <div>
+                                    <select class="w-full bg-gray-200 border border-gray-200 text-white text-xs py-3 px-4 pr-8 mb-3 rounded" id="job-type">
+                                        <option>Full-Time</option>
+                                        <option>Part-Time</option>
+                                        <option>Internship</option>
+                                    </select>
+                                    </div>
+                                </div>
+                                <div class="md:w-1/2 px-3">
+                                    <label class="uppercase tracking-wide text-white text-xs font-bold mb-2" for="department">
+                                    Department*
+                                    </label>
+                                    <div>
+                                    <select class="w-full bg-gray-200 border border-gray-200 text-white text-xs py-3 px-4 pr-8 mb-3 rounded" id="department">
+                                        <option>Engineering</option>
+                                        <option>Design</option>
+                                        <option>Customer Support</option>
+                                    </select>
+                                    </div>
+                                </div>
+                                </div>
+                                <div class="-mx-3 md:flex mt-2">
+                                <div class="md:w-full px-3">
+                                    <v-btn class="w-full" type="submit" color="warning">
+                                      Solicitar Soporte
+                                    </v-btn>
+                                </div>
+                                </div>
+                            </div>
+                        </v-form>
+                    </div>
+                </div>
+                
             </div>
         </main>
 
         <!--Footer Content-->
-        <footer class="footer-support">
-            <!-- Limited General Content -->
-            <div class="footer-support-container limited">
-            
-            </div>
-        </footer>
+        <Footer />
 </template>
 
 <style lang="scss">
+    .support__form--container{
+        width: 100%;
+        height: 100%;
 
+        .support__form--content{
+            padding: 10px;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 6px;
+
+            .support__content--form{
+                width: 100%;
+                padding: 10px;
+                // border:1px solid #222;
+                background:rgba(42,42,42,1.0);
+            }
+        }
+    }
     .main-support{
         width: 100%;
         min-height: 100vh;
@@ -674,15 +780,20 @@ const toggleDescription = () => {
             display: flex;
             align-items: center;
             flex-wrap: wrap;
+            justify-content: center;
         }
         .cards-list-ul .cards-list{
-            color: var(--color-primary);
             font-size: 13px;
             text-decoration: underline;
             cursor: pointer;
             min-width: max-content;
-            text-shadow: 0px 0px 3px #000;
+            // text-shadow: 0px 0px 3px #000;
             transition: all 0.25s ease-in-out;
+            padding: 5px;
+            border-radius: 6px;
+            background-color: #9995;
+            text-decoration: none;
+            color: #fff;
         }
         .cards-list-ul .cards-list:hover{
             color: #bdbdbd;
