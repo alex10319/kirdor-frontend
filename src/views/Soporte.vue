@@ -18,13 +18,13 @@ const toggleDescription = () => {
 		<main class="main-support">
             <!-- Limited General Content -->
             <div class="support-container">
-                <!-- Presentation -->
+                <!-- Presentation 
                 <div class="support-presentation">
                     <div class="presentation-content">
                         <h1 class="description-title">Bienvenidos a nuestra sección de soporte</h1>
                         <h2 class="description-subtitle">Aquí podrás conseguir información detallada y asistencia personal<br><span>Aprovecha nuestra comunidad para obtener ayuda</span></h2>
                     </div>
-                </div>
+                </div> -->
 
                 <!-- Minslide -->
                 <div class="support-search">
@@ -673,16 +673,20 @@ const toggleDescription = () => {
             gap: 0.75rem;
             display: flex;
             align-items: center;
+            justify-content: center;
             flex-wrap: wrap;
         }
         .cards-list-ul .cards-list{
-            color: var(--color-primary);
             font-size: 13px;
             text-decoration: underline;
             cursor: pointer;
             min-width: max-content;
             text-shadow: 0px 0px 3px #000;
             transition: all 0.25s ease-in-out;
+            padding: 5px;
+            border-radius: 6px;
+            background-color: #9995;
+            color: #bdbdbd;
         }
         .cards-list-ul .cards-list:hover{
             color: #bdbdbd;
