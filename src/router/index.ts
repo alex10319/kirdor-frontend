@@ -7,7 +7,6 @@ import ComunidadView from '../views/Comunidad.vue'
 import TorneosView from '../views/Torneos.vue'
 import AcercaView from '../views/Acerca.vue'
 import SoporteView from '../views/Soporte.vue'
-import DylanView from '../views/Dylan.vue'
 
 
 const routes: Array<RouteRecordRaw> = [
@@ -66,11 +65,6 @@ const routes: Array<RouteRecordRaw> = [
     path: '/soporte',
     name: 'soporte',
     component: SoporteView
-  },
-  {
-    path: '/dylan',
-    name: 'dylan',
-    component: DylanView
   }
 ]
 

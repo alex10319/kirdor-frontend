@@ -8,13 +8,182 @@
 		onMounted(()=>{
 			text.value = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.';
 		})
+
+	const toggle = ref<boolean>(false);
 </script>
 <template>
     <Header/>
     <div class="torneos__content">
-        <div class="torneos__content--aside">
 
+    	<!--Aside Izquierdo -->
+        <div class="torneos__content--aside">
+        	<aside id="asideLeft" class="aside-tournament-container aside-left">
+				<button id="allTournaments" class="aside-left__btn all-tournaments-btn" @click="toggle=!toggle">Torneos
+					<i class="ri-arrow-drop-down-line"></i>
+				</button>
+				<div class="aside-left__container all-tournaments-container" :class="{'active':toggle}">
+					<div class="tournament-content__view">
+						<div class="tournament-view__btn">
+							<div class="tournament-view__btn--pic">
+								<img src="@/assets/img/tournaments/valorant.png" class="tab-icon">Valorant
+							</div>
+							<span class="tournament-view__counter">55</span>
+						</div>
+					</div>
+					<div class="tournament-content__view">
+						<div class="tournament-view__btn">
+							<div class="tournament-view__btn--pic">
+								<img src="@/assets/img/tournaments/csgo.webp" class="tab-icon">Counter Strike GO
+							</div>
+							<span class="tournament-view__counter">23</span>
+						</div>
+					</div>
+					<div class="tournament-content__view">
+						<div class="tournament-view__btn">
+							<div class="tournament-view__btn--pic">
+								<img src="@/assets/img/tournaments/fifa.png" class="tab-icon">Fifa
+							</div>
+							<span class="tournament-view__counter">44</span>
+						</div>
+					</div>
+					<div class="tournament-content__view">
+						<div class="tournament-view__btn">
+							<div class="tournament-view__btn--pic">
+								<img src="@/assets/img/tournaments/freefire.png" class="tab-icon">Free Fire
+							</div>
+							<span class="tournament-view__counter">12</span>
+						</div>
+					</div>
+					<div class="tournament-content__view">
+						<div class="tournament-view__btn">
+							<div class="tournament-view__btn--pic">
+								<img src="@/assets/img/tournaments/yugi.png" class="tab-icon">Yu Gi Oh
+							</div>
+							<span class="tournament-view__counter">06</span>
+						</div>
+					</div>
+					<div class="tournament-content__view">
+						<div class="tournament-view__btn">
+							<div class="tournament-view__btn--pic">
+								<img src="@/assets/img/tournaments/pes.png" class="tab-icon">Fifa
+							</div>
+							<span class="tournament-view__counter">44</span>
+						</div>
+					</div>
+					<div class="tournament-content__view">
+						<div class="tournament-view__btn">
+							<div class="tournament-view__btn--pic">
+								<img src="@/assets/img/tournaments/pokemongo.jpg" class="tab-icon">Pokémon GO
+							</div>
+							<span class="tournament-view__counter">11</span>
+						</div>
+					</div>
+					<div class="tournament-content__view">
+						<div class="tournament-view__btn">
+							<div class="tournament-view__btn--pic">
+								<img src="@/assets/img/tournaments/callofduty.webp" class="tab-icon">Call Of Duty
+							</div>
+							<span class="tournament-view__counter">41</span>
+						</div>
+					</div>
+					<div class="tournament-content__view">
+						<div class="tournament-view__btn">
+							<div class="tournament-view__btn--pic">
+								<img src="@/assets/img/tournaments/fortnite.jpeg" class="tab-icon">Fortnite
+							</div>
+							<span class="tournament-view__counter">13</span>
+						</div>
+					</div>
+					<div class="tournament-content__view">
+						<div class="tournament-view__btn">
+							<div class="tournament-view__btn--pic">
+								<img src="@/assets/img/tournaments/lol.png" class="tab-icon">League of Legends
+							</div>
+							<span class="tournament-view__counter">21</span>
+						</div>
+					</div>
+				</div>
+
+				<button id="allGames" class="aside-left__btn all-games-btn" @click="toggle=!toggle">Juegos
+					<i class="ri-arrow-drop-down-line"></i>
+				</button>
+
+				<div class="aside-left__container all-games-container" :class="{'active':toggle}">
+					<div class="games-content__view">
+						<div class="games-view__btn">
+							<div class="games-view__btn--pic">
+								<img src="@/assets/img/tournaments/valorant.png" class="tab-icon">Valorant
+							</div>
+						</div>
+					</div>
+					<div class="games-content__view">
+						<div class="games-view__btn">
+							<div class="games-view__btn--pic">
+								<img src="@/assets/img/tournaments/csgo.webp" class="tab-icon">Counter Strike GO
+							</div>
+						</div>
+					</div>
+					<div class="games-content__view">
+						<div class="games-view__btn">
+							<div class="games-view__btn--pic">
+								<img src="@/assets/img/tournaments/fifa.png" class="tab-icon">Fifa
+							</div>
+						</div>
+					</div>
+					<div class="games-content__view">
+						<div class="games-view__btn">
+							<div class="games-view__btn--pic">
+								<img src="@/assets/img/tournaments/freefire.png" class="tab-icon">Free Fire
+							</div>
+						</div>
+					</div>
+					<div class="games-content__view">
+						<div class="games-view__btn">
+							<div class="games-view__btn--pic">
+								<img src="@/assets/img/tournaments/yugi.png" class="tab-icon">Yu Gi Oh
+							</div>
+						</div>
+					</div>
+					<div class="games-content__view">
+						<div class="games-view__btn">
+							<div class="games-view__btn--pic">
+								<img src="@/assets/img/tournaments/pes.png" class="tab-icon">Fifa
+							</div>
+						</div>
+					</div>
+					<div class="games-content__view">
+						<div class="games-view__btn">
+							<div class="games-view__btn--pic">
+								<img src="@/assets/img/tournaments/pokemongo.jpg" class="tab-icon">Pokémon GO
+							</div>
+						</div>
+					</div>
+					<div class="games-content__view">
+						<div class="games-view__btn">
+							<div class="games-view__btn--pic">
+								<img src="@/assets/img/tournaments/callofduty.webp" class="tab-icon">Call Of Duty
+							</div>
+						</div>
+					</div>
+					<div class="games-content__view">
+						<div class="games-view__btn">
+							<div class="games-view__btn--pic">
+								<img src="@/assets/img/tournaments/fortnite.jpeg" class="tab-icon">Fortnite
+							</div>
+						</div>
+					</div>
+					<div class="games-content__view">
+						<div class="games-view__btn">
+							<div class="games-view__btn--pic">
+								<img src="@/assets/img/tournaments/lol.png" class="tab-icon">League of Legends
+							</div>
+						</div>
+					</div>
+				</div>
+			</aside>
         </div>
+
+        <!-- Contenedor Central -->
         <div class="torneos__content--container">
 					<div class="torneos__container--cont">
 						<div class="torneos__banner">
@@ -24,13 +193,10 @@
         			:hide-delays="[1000, 1000]"
 							>
 								<v-carousel-item>
-									<img src="@/assets/img/tournaments/1.jpg" alt="" class="torneos__banner--carousel-img">
 								</v-carousel-item>
 								<v-carousel-item>
-									<img src="@/assets/img/tournaments/2.jpg" alt="" class="torneos__banner--carousel-img">
 								</v-carousel-item>
 								<v-carousel-item>
-									<img src="@/assets/img/tournaments/3.jpg" alt="" class="torneos__banner--carousel-img">
 								</v-carousel-item>
 							</v-carousel>
 						</div>
@@ -437,134 +603,151 @@
 						</v-card>
 					</div>
         </div>
+
+        <!-- Aside Derecho -->
         <div class="torneos__content--aside">
-							<aside id="asideRight" class="aside-tournament-container aside-right">
-									<button id="createTournament" class="create-tournament-btn" type="button">Crear un torneo</button>
-									<div class="banner-aside-right">
-											<div class="banner-aside-picture">
-													<img src="@/assets/img/tournaments/aside2.jpeg">
-											</div>
-											<div class="banner-aside-picture">
-													<img src="@/assets/img/tournaments/aside1.jpg">
-											</div>
-									</div>
-							</aside>
+			<aside id="asideRight" class="aside-tournament-container aside-right">
+				<button id="createTournament" class="create-tournament-btn" type="button">Crear un torneo</button>
+				<div class="banner-aside-right">
+					<div class="banner-aside-picture">
+						<img src="@/assets/img/tournaments/aside2.jpeg">
+					</div>
+					<div class="banner-aside-picture">
+						<img src="@/assets/img/tournaments/aside1.jpg">
+					</div>
+				</div>
+			</aside>
         </div>
     </div>
 </template>
 <style lang="scss">
-    .torneos__content{
-        width: 100%;
-        display: flex;
-        justify-content: center;
-				gap: 10px;
-						padding-top: 80px;
-        .torneos__content--aside{
-            flex:.3;
-						height: 100%;
-						.contenedor-aside{
-								width: 100%;
-								height: max-content;
-								display: flex;
-								justify-content: space-between;
-								gap: 0.15rem;
-						}
-						.aside-tournament-container{
-								height: max-content;
-								width: 100%;
-								background: #222;
-								border-radius: 2px;
-								display: flex;
-								flex-direction: column;
-								gap: 0.25rem;
-								padding: 0.25rem;
-								padding-bottom: 0rem;
-						}
+.torneos__content{
+ width: 100%;
+ display: flex;
+ justify-content: center;
+	gap: 0.15rem;
+	padding-top: 80px;
 
-						.create-tournament-btn{
-								width: 100%;
-								transition: background 0.25s ease-in-out;
-								border-radius: 17px;
-								cursor: pointer;
-								font-size: 12px;
-								color: #222;
-								padding: 10px;
-								font-weight: 500;
-								border:1px solid #fff1;
-								color: #fff;
-								transition: all .3s;
-								text-transform: uppercase;
-								font-weight: 600;
-								margin-bottom: 5px;
-								background:#333;
-								box-shadow: 0 0 15px #fff2;
+ .torneos__content--aside{
+  flex:.3;
+		height: 100%;
+
+		.contenedor-aside{
+			width: 100%;
+			height: max-content;
+			display: flex;
+			justify-content: space-between;
+			gap: 0.15rem;
+		}
+
+		.aside-tournament-container{
+			height: max-content;
+			width: 100%;
+			background: #222;
+			display: flex;
+			flex-direction: column;
+			gap: 0.25rem;
+			padding: 0.25rem;
+			padding-bottom: 0rem;
+		}
+
+		.create-tournament-btn{
+			width: 100%;
+			transition: background 0.25s ease-in-out;
+			cursor: pointer;
+			font-size: 13px;
+			color: #222;
+			padding: 10px;
+			padding-bottom: 7.5px;
+			font-weight: 500;
+			border:1px solid #fff1;
+			color: #fff;
+			transition: all .3s;
+			text-transform: uppercase;
+			font-weight: 600;
+			margin-bottom: 5px;
+			background:#333;
+			box-shadow: 0 0 15px #fff2;
+			border-radius: 12px;
+			text-shadow: 0px 0px 3px #000;
+
+				&:hover{
+					transform: scale(1.01);
+					box-shadow: 0 0 15px #fa1;
+					background:#fa1;
+				}
+		}
+
+		.banner-aside-right{
+			width: 100%;
+			height: max-content;
+			display: flex;
+			flex-direction: column;
+			gap: 0.25rem;
+			padding-bottom: 0.25rem;
+			border-radius: 6px;
+		}
+
+		.banner-aside-picture{
+			width: 100%;
+			overflow: hidden;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			border-radius: 6px;
+		}
+
+		.banner-aside-picture:hover img{
+			transform: scale(1.01);
+		}
+
+		.banner-aside-picture img{
+			width: 100%;
+			transition: all 0.25s ease-in-out;
+			height: 100%;
+			object-fit:cover;
+  }
+	}
+
+	.torneos__content--container{
+		max-width: 1280px;
+		margin: 0 auto;
+		flex:1;
+		height: 100%;
+
+		.torneos__container--cont{
+			width: 100%;
+			display: flex;
+			flex-direction: column;
+			padding-bottom: 20px;
+						
+			.torneos__banner{
+				padding: 10px;
+				display: flex;
+				height: 300px;
+				padding: 5px;
+				background-color: #222;
+
+				&-container{
+					width: 100%;
+					height: 100%;
+
+						button{
+							background-color: #2229;
+							transition: all .3s;
 
 								&:hover{
-									transform: scale(1.02);
+									background-color: #222;
 									box-shadow: 0 0 15px #fa1;
-									background:#fa1;
 								}
-						}
-						.banner-aside-right{
-								width: 100%;
-								height: max-content;
-								display: flex;
-								flex-direction: column;
-								gap: 0.25rem;
-								padding-bottom: 0.25rem;
-						}
-						.banner-aside-picture{
-								width: 100%;
-								overflow: hidden;
-								border-radius: 12px;
-								display: flex;
-								align-items: center;
-								justify-content: center;
-						}
-						.banner-aside-picture:hover img{
-								transform: scale(1.01);
-						}
-						.banner-aside-picture img{
-								width: 100%;
-								transition: all 0.25s ease-in-out;
-								height: 100%;
-								object-fit:cover;
-        		}
-					}
-				.torneos__content--container{
-					max-width: 1280px;
-					margin: 0 auto;
-					flex:1;
-					height: 100%;
-					.torneos__container--cont{
-						width: 100%;
-						display: flex;
-						flex-direction: column;
-						padding-bottom: 20px;
-						
-						.torneos__banner{
-							padding: 10px;
-							display: flex;
-							height: 300px;
-							padding: 5px;
-							background-color: #222;
-							&-container{
-								width: 100%;
-								height: 100%;
-								button{
-									background-color: #2229;
-									transition: all .3s;
-									&:hover{
-										background-color: #222;
-										box-shadow: 0 0 15px #fa1;
-									}
-									.v-btn__content{
-										i{
-											color: #fff !important;
-										}
-										
+
+								.v-btn__content{
+									i{
+										color: #fff !important;
 									}
 								}
+							}
+
 								.torneos__banner--carousel-img{
 									width: 100%;
 									height: 100%;
@@ -574,32 +757,35 @@
 							}
 						}
 
-						.torneos__mycard{
-							width: 100%;
-							height: 100%;
-							flex:1;
-						}
+			.torneos__mycard{
+				width: 100%;
+				height: 100%;
+				flex:1;
+			}
 
-						.v-tabs{
-							height: 60px !important;
+			.v-tabs{
+				height: 60px !important;
+			}
+
+			.tab--content{
+				height: 50px !important;
+
+					.v-btn__content{
+						display: flex !important;
+						gap: 10px;
+						align-items: center;
+						flex-direction: row;
+					}
+
+					.v-tab__slider{
+						background:var(--color-primary);
+					}
+
+					.tab-icon{
+						width: 30px;
+						object-fit: cover;
 						}
-						.tab--content{
-							height: 50px !important;
-							.v-btn__content{
-								display: flex !important;
-								gap: 10px;
-								align-items: center;
-								flex-direction: row;
-							}
-							.v-tab__slider{
-								background:var(--color-primary);
-							}
-							
-							.tab-icon{
-								width: 30px;
-								object-fit: cover;
-							}
-						}
+					}
 						
 						.window__container--table{
 							width: 100%;
@@ -675,5 +861,170 @@
 						}
 					}
 				}
-			}
+}
+
+.aside-left__btn{
+	width: 100%;
+	transition: background 0.25s ease-in-out;
+	cursor: pointer;
+	font-size: 13px;
+	color: #222;
+	font-weight: 500;
+	border:1px solid #fff1;
+	color: #fff;
+	transition: all .3s;
+	text-transform: uppercase;
+	font-weight: 600;
+	padding: 0rem 0.25rem;
+	padding-left: 0.5rem;
+	padding-top: 0.10rem;
+	background:#333;
+	box-shadow: 0 0 6px #fff2;
+	border-radius: 6px;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	text-shadow: 0px 0px 3px #000;
+	max-height: 42px;
+	overflow: hidden;
+	margin-bottom: 5px;
+
+	&:hover{
+		box-shadow: 0 0 6px #fa1;
+		background:#fa1;
+	}
+
+	i{
+		color: #F0F0F0;
+		font-size: 32px;
+		font-weight: 100;
+	}
+}
+
+.aside-left__container{
+	width: 100%;
+	height: max-content;
+	display: flex;
+	flex-direction: column;
+	gap: 0.25rem;
+	overflow: hidden;
+	transition: all 0.25s ease-in-out;
+}
+
+.tournament-content__view{
+	width: 100%;
+	min-height: 38px;
+	max-height: 40px;
+	border-radius: 6px;
+	background: rgba(42, 42, 42, 1.0);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 0.25rem;
+	padding-left: 0.35rem;
+	cursor: pointer;
+
+	&:hover{
+		box-shadow: 0 0 6px #fa1;
+		background:#fa1;
+	}
+
+	&:hover .tournament-view__counter{
+		color: #000 !important;
+	}
+
+	.tournament-view__btn{
+		width: 100%;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: 0.5rem;
+		color: #f0f0f0;
+		text-shadow: 0px 0px 3px #000;
+
+		img{
+			max-width: 32px;
+			max-height: 32px;
+			object-fit: cover;
+			border-radius: 50%;
+		}
+	}
+}
+.tournament-view__btn--pic{
+	display: flex;
+	align-items: center;
+	gap: 0.25rem;
+}
+
+.all-games-btn{
+	margin-top: 1rem;
+}
+.all-games-container{
+	padding-bottom: 0.35rem;
+}
+.all-games-container.active{
+	padding-bottom: 0rem;
+	height: 0%;
+}
+.all-tournaments-container{
+	height: max-content;
+	padding: 0.15rem 0rem;
+}
+.all-tournaments-container.active{
+	padding: 0rem;
+	height: 0;
+}
+.games-content__view{
+	width: 100%;
+	min-height: 38px;
+	max-height: 40px;
+	border-radius: 6px;
+	background: rgba(42, 42, 42, 1.0);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 0.25rem;
+	padding-left: 0.35rem;
+	cursor: pointer;
+
+	&:hover{
+		box-shadow: 0 0 6px #fa1;
+		background:#fa1;
+	}
+
+	&:hover .games-view__counter{
+		color: #000 !important;
+	}
+
+	.games-view__btn{
+		width: 100%;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: 0.5rem;
+		color: #f0f0f0;
+		text-shadow: 0px 0px 3px #000;
+
+		img{
+			max-width: 32px;
+			max-height: 32px;
+			object-fit: cover;
+			border-radius: 50%;
+		}
+	}
+}
+.games-view__btn--pic{
+	display: flex;
+	align-items: center;
+	gap: 0.25rem;
+}
+.all-games-container{
+	height: max-content;
+	padding: 0.15rem 0rem;
+}
+.all-games-container.active{
+	padding: 0rem;
+	height: 0;
+}
+
 </style>
