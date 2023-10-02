@@ -22,7 +22,6 @@
 							hide-delimiters
 							cycle interval="3000"
         			:hide-delays="[1000, 1000]"
-							show-arrows="hover"
 							>
 								<v-carousel-item>
 									<img src="@/assets/img/tournaments/1.jpg" alt="" class="torneos__banner--carousel-img">
