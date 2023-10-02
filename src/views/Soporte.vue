@@ -6,21 +6,44 @@
     import router from '@/router';
 
     const descriptionActive = ref<Boolean>(true);
-    const name = ref<string | null>(null); // <-- String para texto, number para numeros, object para objetos array para arrays...
-    // puede ser string | <- esto significa o. entonces: puede ser string | null (puede ser string o null);
-    const lastname = ref<string | null>(null);
 
     const toggleDescription = () => {
         descriptionActive.value = !descriptionActive.value;
     };
 
-    const enviarForm = () => {
+
+
+    const name = ref<string | null>(null);
+    const lastname = ref<string | null>(null);
+    const message = ref<string | null>(null);
+    const email = ref<string | null>(null);
+    const selectedTag = ref<any>(null);
+    const selectedAssists = ref<any>(null);
+
+    const tags = [{ title: 'Información', value: 1 },
+                  { title: 'Detalles', value: 2 },
+                  { title: 'Asistencia', value: 3 },
+                  { title: 'Soporte', value: 4 },
+                  { title: 'Amistades', value: 5 },
+                  { title: 'Tratamientos', value: 6 },
+                  { title: 'Descripción', value: 7 },
+                  { title: 'Comunidad', value: 8 },
+                  { title: 'Privacidad', value: 9 },
+                  { title: 'Mensajes', value: 10 },
+                ];
+    const assists = [{ title: 'Asistencia Personal', value: 1 },
+                     { title: 'Asistencia Completa', value: 2 },
+                     { title: 'Asistencias Rápidas', value: 3 },
+                ];
+
+    const sendForm = () => {
       const form = {
         name: name.value,
-        lastname: lastname.value
-      }
-
-      console.log(form);
+        lastname: lastname.value,
+        message: message.value,
+        tags: selectedTag.value?.value,
+        assists: selectedAssists.value?.value
+      };
     };
 
 </script>
@@ -31,13 +54,7 @@
 		<main class="main-support">
             <!-- Limited General Content -->
             <div class="support-container">
-<<<<<<< HEAD
-                <!-- Presentation 
-                <div class="support-presentation">
-=======
-                <!-- Presentation -->
                 <!-- <div class="support-presentation">
->>>>>>> db87b320302856b1d20f7067250187a08bc2d59d
                     <div class="presentation-content">
                         <h1 class="description-title">Bienvenidos a nuestra sección de soporte</h1>
                         <h2 class="description-subtitle">Aquí podrás conseguir información detallada y asistencia personal<br><span>Aprovecha nuestra comunidad para obtener ayuda</span></h2>
@@ -112,8 +129,8 @@
 
                 <div class="support-cards">
                     <div class="cards-container limited">
-                        <h3 class="support-cards-title">Tarjetas Informativas</h3>
-                        <h4 class="support-cards-subtitle">Obten información un poco más rápida con comentarios de la comunidad y ayuda de los administradores</h4>
+                        <h3 class="support-cards-title">Tarjetas Informativas con Etiquetas de Referencia</h3>
+                        <h4 class="support-cards-subtitle">Obten información un poco más rápida con comentarios de la comunidad y ayuda de los administradores mediante las tarjetas</h4>
                         <div class="cards-box">
                             <div class="cards">
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="32" height="32"><path d="M14.45 19L12 22.5L9.55 19H3C2.73478 19 2.48043 18.8946 2.29289 18.7071C2.10536 18.5196 2 18.2652 2 18V4C2 3.73478 2.10536 3.48043 2.29289 3.29289C2.48043 3.10536 2.73478 3 3 3H21C21.2652 3 21.5196 3.10536 21.7071 3.29289C21.8946 3.48043 22 3.73478 22 4V18C22 18.2652 21.8946 18.5196 21.7071 18.7071C21.5196 18.8946 21.2652 19 21 19H14.45ZM13.409 17H20V5H4V17H10.591L12 19.012L13.409 17Z"></path></svg>
@@ -151,7 +168,7 @@
                                 <div class="cards-description-box">Consigue atención personalizada sobre lo que necesitas</div>
                                 <ul class="cards-list-ul">
                                     <li class="cards-list">Ayuda</li>
-                                    <li class="cards-list">Atención Virtual</li>
+                                    <li class="cards-list">Soporte</li>
                                     <li class="cards-list">Ver más</li>
                                 </ul>
                             </div>
@@ -161,7 +178,7 @@
                                 <div class="cards-description-box">Atención virtual y ayuda de otros usuarios</div>
                                 <ul class="cards-list-ul">
                                     <li class="cards-list">Ayuda</li>
-                                    <li class="cards-list">Amigos</li>
+                                    <li class="cards-list">Amistades</li>
                                     <li class="cards-list">Ver más</li>
                                 </ul>
                             </div>
@@ -172,17 +189,17 @@
                                 <div class="cards-description-box">Métodos para resolver posibles problemas</div>
                                 <ul class="cards-list-ul">
                                     <li class="cards-list">Ayuda</li>
-                                    <li class="cards-list">Tratar</li>
+                                    <li class="cards-list">Tratamientos</li>
                                     <li class="cards-list">Ver más</li>
                                 </ul>
                             </div>
                             <div class="cards">
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="32" height="32"><path d="M18 2C18.5523 2 19 2.44772 19 3V11H17V4H7V20H11V22H6C5.44772 22 5 21.5523 5 21V3C5 2.44772 5.44772 2 6 2H18ZM15 12C17.2091 12 19 13.7909 19 16C19 16.7419 18.798 17.4366 18.446 18.0322L20.6569 20.2426L19.2426 21.6569L17.0313 19.4466C16.4359 19.7982 15.7415 20 15 20C12.7909 20 11 18.2091 11 16C11 13.7909 12.7909 12 15 12ZM15 14C13.8954 14 13 14.8954 13 16C13 17.1046 13.8954 18 15 18C16.1046 18 17 17.1046 17 16C17 14.8954 16.1046 14 15 14Z"></path></svg>
-                                <h4 class="cards-text">Descripciones</h4>
+                                <h4 class="cards-text">Descripción</h4>
                                 <div class="cards-description-box">Existen errores básicos que son normales, ya tenemos explicación</div>
                                 <ul class="cards-list-ul">
                                     <li class="cards-list">Ayuda</li>
-                                    <li class="cards-list">Leer</li>
+                                    <li class="cards-list">Descripción</li>
                                     <li class="cards-list">Ver más</li>
                                 </ul>
                             </div>
@@ -202,7 +219,7 @@
                                 <div class="cards-description-box">Problemas con tu cuenta o la comunidad</div>
                                 <ul class="cards-list-ul">
                                     <li class="cards-list">Ayuda</li>
-                                    <li class="cards-list">Privado</li>
+                                    <li class="cards-list">Privacidad</li>
                                     <li class="cards-list">Ver más</li>
                                 </ul>
                             </div>
@@ -212,7 +229,7 @@
                                 <div class="cards-description-box">Comunicación personalizada con usuarios y administradores</div>
                                 <ul class="cards-list-ul">
                                     <li class="cards-list">Ayuda</li>
-                                    <li class="cards-list">Charlar</li>
+                                    <li class="cards-list">Mensajes</li>
                                     <li class="cards-list">Ver más</li>
                                 </ul>
                             </div>
@@ -225,72 +242,78 @@
                 <!-- Mincontainer -->
                 <div class="support__form--container">
                     <div class="support__form--content limited">
-                        <v-form @submit.prevent="enviarForm" class="support__content--form">
-                            <div class="shadow-md rounded px-8 pt-6 pb-8 mb-4 flex flex-col">
+                        
+                        <v-form @submit.prevent="sendForm" class="support__content--form">
+
+                            <div class="support-form__present">
+                                <h4 class="form-title-support">Si necesitas ayuda extra te la brindamos</h4>
+                                <h5 class="form-subtitle-support">Comunicate con nosotros utilizando nuestro servicio de atención al público y las tarjetas informativas</h5>
+                            </div>
+
+                            <div id="subcontainer-form" class="px-8 pt-6 pb-8 mb-4 flex flex-col">
+
+                                <!-- Flex 1 -->
                                 <div class="-mx-3 md:flex">
-                                  <div class="md:w-1/2 px-3 md:mb-0">
-                                    <v-text-field 
-                                    v-model="name"
-                                    label="Ingresa tu nombre.." class="text-white" color="warning" />
-                                    <!-- <textarea></textarea>
-                                    <v-textarea></v-textarea> -->
-                                  <div>
+                                    <div class="md:w-1/2 px-3 md:mb-0">
+                                        <v-text-field label="Ingresa tú nombre" v-model="name" class="text-white" color="warning" />
+                                        <div></div>
+                                    </div>
+                                    <div class="md:w-1/2 px-3">
+                                        <v-text-field label="Ingresa tú apellido" v-model="lastname" class="text-white" color="warning"/>
+                                    </div>
                                 </div>
-                                </div>
-                                <div class="md:w-1/2 px-3">
-                                  <v-text-field label="Apellido..."
-                                  v-model="lastname"
-                                  class="text-white" color="warning"/>
-                                </div>
-                                </div>
+
+                                <!-- Flex 2 -->
                                 <div class="-mx-3 md:flex mb-6">
-                                <div class="md:w-full px-3">
-                                    <v-textarea label="Mensaje..." class="text-white" color="warning"/>
+                                    <div class="md:w-full px-3">
+                                        <v-text-field label="Ingresa tú correo electrónico" v-model="email" class="text-white" color="warning"/>
+                                    </div>
                                 </div>
+
+                                <!-- Flex 3 -->
+                                <div class="-mx-3 md:flex mb-6">
+                                    <div class="md:w-full px-3">
+                                        <v-textarea label="Dejanos tu mensaje" v-model="message" class="text-white" color="warning"/>
+                                    </div>
                                 </div>
+
+                                <!-- Flex 4 -->
                                 <div class="-mx-3 md:flex mb-2">
-                                <div class="md:w-1/2 px-3 mb-6 md:mb-0">
-                                  <v-select color="warning" class="text-white" label="Selecciona un elemento..."
-                                  :items="[
-                                    {title: 'Ayuda random',value: 1}, 
-                                    {title: 'Ayuda random 2',value: 2},
-                                    {title: 'Ayuda random 3',value: 3}, 
-                                    {title: 'Ayuda random 4',value: 4}
-                                  ]"
-                                  />
-                                </div>
-                                <div class="md:w-1/2 px-3">
-                                    <label class="uppercase tracking-wide text-white text-xs font-bold mb-2" for="job-type">
-                                    Job Type*
-                                    </label>
-                                    <div>
-                                    <select class="w-full bg-gray-200 border border-gray-200 text-white text-xs py-3 px-4 pr-8 mb-3 rounded" id="job-type">
-                                        <option>Full-Time</option>
-                                        <option>Part-Time</option>
-                                        <option>Internship</option>
-                                    </select>
+                                    <div class="md:w-1/2 px-3 mb-6 md:mb-0">
+                                        <v-select
+                                            label="Etiqueta de Referencia"
+                                            v-model="selectedTag"
+                                            color="warning"
+                                            class="text-white"
+                                            :items="tags"
+                                            return-object
+                                            outlined>
+                                        </v-select>
+                                    </div>
+                                    <div class="md:w-1/2 px-3 mb-6 md:mb-0">
+                                        <v-select
+                                            label="Tipo de Asistencia"
+                                            v-model="selectedAssists"
+                                            color="warning"
+                                            class="text-white"
+                                            :items="assists"
+                                            return-object
+                                            outlined>
+                                        </v-select>
                                     </div>
                                 </div>
-                                <div class="md:w-1/2 px-3">
-                                    <label class="uppercase tracking-wide text-white text-xs font-bold mb-2" for="department">
-                                    Department*
-                                    </label>
-                                    <div>
-                                    <select class="w-full bg-gray-200 border border-gray-200 text-white text-xs py-3 px-4 pr-8 mb-3 rounded" id="department">
-                                        <option>Engineering</option>
-                                        <option>Design</option>
-                                        <option>Customer Support</option>
-                                    </select>
-                                    </div>
-                                </div>
-                                </div>
+
+                                <!-- Flex 5 -->
                                 <div class="-mx-3 md:flex mt-2">
-                                <div class="md:w-full px-3">
-                                    <v-btn class="w-full" type="submit" color="warning">
-                                      Solicitar Soporte
-                                    </v-btn>
+                                    <div class="btn-submit-container md:w-full px-3">
+                                        <v-btn type="submit" class="submit-form-btn-support">Envíar Solicitud</v-btn>
+                                    </div>
                                 </div>
-                                </div>
+                            </div>
+
+                            <div class="support-form__present">
+                                <h5 class="form-description-support"></h5>
+                                <h5 class="form-subdescription-support"></h5>
                             </div>
                         </v-form>
                     </div>
@@ -304,27 +327,6 @@
 </template>
 
 <style lang="scss">
-    .support__form--container{
-        width: 100%;
-        height: 100%;
-
-        .support__form--content{
-            padding: 10px;
-            width: 100%;
-            height: 100%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            border-radius: 6px;
-
-            .support__content--form{
-                width: 100%;
-                padding: 10px;
-                // border:1px solid #222;
-                background:rgba(42,42,42,1.0);
-            }
-        }
-    }
     .main-support{
         width: 100%;
         min-height: 100vh;
@@ -572,7 +574,7 @@
         width: 98%;
         gap: 0.5rem;
         margin: auto;
-        max-height: 126px;
+        max-height: 50px;
         overflow: hidden;
         padding: 0.5rem 0.5rem;
         transition: all 0.25s ease-in-out;
@@ -715,20 +717,22 @@
         box-shadow: 0px 0px 6px rgb(0 0 0 / 30%);
         padding: 1rem;
         gap: 0.5rem;
+        padding-bottom: 2rem;
 
         .support-cards-title{
-            font-size: 20px;
+            font-size: 24px;
             color: #bdbdbd;
             font-weight: 600;
             text-shadow: 0px 0px 3px #000;
             text-transform: uppercase;
         }
         .support-cards-subtitle{
-            font-size: 16px;
+            font-size: 18px;
             color: #999999;
             font-weight: 600;
             text-shadow: 0px 0px 3px #000;
             text-transform: uppercase;
+            margin-bottom: 1.25rem;
         }
     }
 
@@ -757,6 +761,7 @@
         padding: 0.5rem 0.75rem;
         flex-direction: column;
         align-items: center;
+        justify-content: center;
         gap: 0.5rem;
         cursor: pointer;
         svg{
@@ -795,15 +800,13 @@
             min-width: max-content;
             // text-shadow: 0px 0px 3px #000;
             transition: all 0.25s ease-in-out;
-            padding: 5px;
+            padding: 0.25rem 0.35rem;
             border-radius: 6px;
             background-color: #9995;
-<<<<<<< HEAD
             color: #bdbdbd;
-=======
             text-decoration: none;
             color: #fff;
->>>>>>> db87b320302856b1d20f7067250187a08bc2d59d
+            text-shadow: 0px 0px 3px #000;
         }
         .cards-list-ul .cards-list:hover{
             color: #bdbdbd;
@@ -814,49 +817,68 @@
         transform: scale(1.03);
     }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    .footer-support{
-        width: 100%;
-        height: 320px;
-        display: grid;
-        place-items: center;
-        position: relative;
-        padding: 0rem 0.5rem;
-    }
-
-    .footer-support-container{
+    .support__form--container{
         width: 100%;
         height: 100%;
+
+        .support__form--content{
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            justify-content: center;
+            align-items: center;
+
+            .support__content--form{
+                width: 100%;
+                border-radius: 6px;
+                box-shadow: 0px 0px 6px rgb(0 0 0 / 30%);
+                background: rgba(42, 42, 42, 1.0);
+            }
+        }
+    }
+
+    .support-form__present{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        padding: 1rem;
+
+        h4{
+            font-size: 26px;
+            color: #bdbdbd;
+            text-shadow: 0px 0px 3px #000;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 600;
+        }
+        h5{
+            font-size: 18px;
+            color: #999999;
+            font-weight: 600;
+            text-shadow: 0px 0px 3px #000;
+            text-transform: uppercase;
+        }
+    }
+
+    #subcontainer-form{
+        padding: 1rem !important;
+    }
+
+    .btn-submit-container{
+        width: 100%;
         display: flex;
         align-items: center;
         justify-content: center;
-        gap: 1rem;
-        padding-top: 1rem;
-        margin-top: 1rem;
+    }
+    .submit-form-btn-support{
+        background: var(--color-primary) !important;
+        color: #FFFFFF !important;
+        font-weight: 500;
+        font-size: 16px;
+        text-shadow: 0px 0px 3px #000;
+        max-width: 164px;
     }
 
 </style>
