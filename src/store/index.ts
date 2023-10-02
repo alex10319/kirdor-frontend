@@ -15,6 +15,7 @@ export default createStore({
   },
   getters: {
     user: (state: RootState) => state.user,
+    token: (state: RootState) => state.token,
     isAuthenticated: (state: RootState) => state.isAuthenticated
   },
   mutations,

@@ -20,7 +20,7 @@ const routes: Array<RouteRecordRaw> = [
     name: 'login',
     component: LoginView,
     beforeEnter: (to, from, next) => {
-      if (store.getters.isAuthenticated) {
+      if (store.getters.user && store.getters.token) {
         next({ name: 'comunidad' }); // Redirige al panel si el usuario está autenticado
       } else {
         next(); // Permite el acceso a la página de inicio
@@ -32,7 +32,7 @@ const routes: Array<RouteRecordRaw> = [
     name: 'register',
     component: RegisterView,
     beforeEnter: (to, from, next) => {
-      if (store.getters.isAuthenticated) {
+      if (store.getters.user && store.getters.token) {
         next({ name: 'comunidad' }); // Redirige al panel si el usuario está autenticado
       } else {
         next(); // Permite el acceso a la página de inicio
@@ -44,7 +44,7 @@ const routes: Array<RouteRecordRaw> = [
     name: 'comunidad',
     component: ComunidadView,
     beforeEnter: (to, from, next) => {
-      if (!store.getters.isAuthenticated) {
+      if (!store.getters.user && !store.getters.token) {
         next({ name: 'login' }); // Redirige al panel si el usuario está autenticado
       } else {
         next(); // Permite el acceso a la página de inicio
