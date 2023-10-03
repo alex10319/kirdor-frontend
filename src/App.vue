@@ -14,8 +14,10 @@ import router from './router';
 const store = useStore();
 onMounted(async () => {
   const myToken = localStorage.getItem('token');
+  const user = localStorage.getItem('user');
+  const authenticated = (localStorage.getItem('isAuthenticated') == 'true');
 
-  if(myToken){
+  if(myToken || user || authenticated){
     try{
       await store.dispatch('verifySession');
     }catch(e:any){

@@ -7,6 +7,7 @@ import ComunidadView from '../views/Comunidad.vue'
 import TorneosView from '../views/Torneos.vue'
 import AcercaView from '../views/Acerca.vue'
 import SoporteView from '../views/Soporte.vue'
+import usuarioView from '../views/Usuario.vue'
 
 
 const routes: Array<RouteRecordRaw> = [
@@ -43,6 +44,18 @@ const routes: Array<RouteRecordRaw> = [
     path: '/comunidad',
     name: 'comunidad',
     component: ComunidadView,
+    beforeEnter: (to, from, next) => {
+      if (!store.getters.user && !store.getters.token) {
+        next({ name: 'login' }); // Redirige al panel si el usuario está autenticado
+      } else {
+        next(); // Permite el acceso a la página de inicio
+      }
+    }
+  },
+  {
+    path: '/usuario',
+    name: 'usuario',
+    component: usuarioView,
     beforeEnter: (to, from, next) => {
       if (!store.getters.user && !store.getters.token) {
         next({ name: 'login' }); // Redirige al panel si el usuario está autenticado

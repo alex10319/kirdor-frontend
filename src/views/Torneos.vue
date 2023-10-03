@@ -3,13 +3,13 @@
     import Header from '@/components/Header.vue';
 
 		const tab = ref<any>(null);
-		const text = ref<String | null>(null);
 
 		onMounted(()=>{
-			text.value = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.';
+			
 		})
 
 	const toggle = ref<boolean>(false);
+	const toggle2 = ref<boolean>(false);
 </script>
 <template>
     <Header/>
@@ -104,11 +104,11 @@
 					</div>
 				</div>
 
-				<button id="allGames" class="aside-left__btn all-games-btn" @click="toggle=!toggle">Juegos
+				<button id="allGames" class="aside-left__btn all-games-btn" @click="toggle2=!toggle2">Juegos
 					<i class="ri-arrow-drop-down-line"></i>
 				</button>
 
-				<div class="aside-left__container all-games-container" :class="{'active':toggle}">
+				<div class="aside-left__container all-games-container" :class="{'active':toggle2}">
 					<div class="games-content__view">
 						<div class="games-view__btn">
 							<div class="games-view__btn--pic">
@@ -193,10 +193,16 @@
         			:hide-delays="[1000, 1000]"
 							>
 								<v-carousel-item>
+									<img src="@/assets/img/tournaments/1.jpg" class="torneos__banner--carousel-img" />
 								</v-carousel-item>
 								<v-carousel-item>
+									<img src="@/assets/img/tournaments/2.jpg" class="torneos__banner--carousel-img" />
 								</v-carousel-item>
 								<v-carousel-item>
+									<img src="@/assets/img/tournaments/3.jpg" class="torneos__banner--carousel-img" />
+								</v-carousel-item>
+								<v-carousel-item>
+									<img src="@/assets/img/tournaments/4.jpg" class="torneos__banner--carousel-img" />
 								</v-carousel-item>
 							</v-carousel>
 						</div>

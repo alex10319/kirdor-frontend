@@ -4,7 +4,7 @@ import mutations from './mutations';
 import { RootState } from './types/state';
 
 const initialUser = localStorage.getItem('user');
-const initialIsAuthenticated = localStorage.getItem('isAuthenticated') === 'true';
+const initialIsAuthenticated = (localStorage.getItem('isAuthenticated') == 'true');
 const initialToken = localStorage.getItem('token');
 
 export default createStore({
