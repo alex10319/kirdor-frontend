@@ -811,9 +811,7 @@
 									flex:.1;
 									display: grid;
 									grid-template-columns: repeat(7,1fr);
-									background: linear-gradient(-90deg, rgba(255, 81, 47, 0.60) 0%, rgba(255, 81, 47, 0));
-								    border-radius: 6px;
-								    gap: 0.5rem;
+									background: linear-gradient(to left, rgba(255, 81, 47, .6) 0%, rgba(255, 81, 47, 0));
 
 									.torneos__table-header--item{
 										width: 100%;
@@ -824,7 +822,7 @@
 										justify-content: center;
 										text-transform: uppercase;
 										i{
-											color: #fa1 !important;
+											color: var(--color-primary);
 											font-size: 20px;
 											margin-right: 10px;
 										}

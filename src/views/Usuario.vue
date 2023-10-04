@@ -17,16 +17,16 @@
               show-arrows="hover"
 							>
 				<v-carousel-item>
-					<!-- <img src="@/assets/img/tournaments/4.jpg" class="user__banner--carousel-img" /> -->
+					<img src="@/assets/img/tournaments/1.jpg" class="user__banner--carousel-img" />
 				</v-carousel-item>
 				<v-carousel-item>
-					<!-- <img src="@/assets/img/tournaments/4.jpg" class="user__banner--carousel-img" /> -->
+					<img src="@/assets/img/tournaments/2.jpg" class="user__banner--carousel-img" />
 				</v-carousel-item>
 				<v-carousel-item>
-					<!-- <img src="@/assets/img/tournaments/4.jpg" class="user__banner--carousel-img" /> -->
+					<img src="@/assets/img/tournaments/3.jpg" class="user__banner--carousel-img" />
 				</v-carousel-item>
 				<v-carousel-item>
-					<!-- <img src="@/assets/img/tournaments/4.jpg" class="user__banner--carousel-img" /> -->
+					<img src="@/assets/img/tournaments/4.jpg" class="user__banner--carousel-img" />
 				</v-carousel-item>
 			</v-carousel>
       <div class="user__banner-gradient"></div>
@@ -35,7 +35,7 @@
           <h4 class="title">alex10319#0001</h4>
           <p class="subtitle">
             <i class="mdi mdi-clipboard-account text-warning"></i>
-            Perfil de La Plataforma</p>
+            Perfil de la plataforma</p>
         </div>
       </div>
     </div>
@@ -48,43 +48,42 @@
 								stacked
 							>
 								<v-tab value="tab-1" class="tab--content">
-									<img src="@/assets/img/user/icono-1.png" class="tab-icon">
+									<img src="@/assets/img/user/usuario.png" class="tab-icon">
 									Perfil
 								</v-tab>
 								<v-tab value="tab-2" class="tab--content">
-									<img src="@/assets/img/user/icono-2.png" class="tab-icon">
+									<img src="@/assets/img/user/configuraciones.png" class="tab-icon">
 									Configuración
 								</v-tab>
 								<v-tab value="tab-3" class="tab--content">
-									<img src="@/assets/img/user/icono-3.png" class="tab-icon">
+									<img src="@/assets/img/user/diagrama.png" class="tab-icon">
 									Torneos
 								</v-tab>
 								<v-tab value="tab-4" class="tab--content">
-									<img src="@/assets/img/user/icono-4.png" class="tab-icon">
+									<img src="@/assets/img/user/desplazarse.png" class="tab-icon">
 									Historial
 								</v-tab>
 								<v-tab value="tab-5" class="tab--content">
-									<img src="@/assets/img/user/icono-5.png" class="tab-icon">
+									<img src="@/assets/img/user/reunion.png" class="tab-icon">
 									Equipos
 								</v-tab>
 								<v-tab value="tab-6" class="tab--content">
-									<img src="@/assets/img/user/icono-6.png" class="tab-icon">
+									<img src="@/assets/img/user/control-de-juego.png" class="tab-icon">
 									Juegos
 								</v-tab>
 								<v-tab value="tab-7" class="tab--content">
-									<img src="@/assets/img/user/icono-7.png" class="tab-icon">
+									<img src="@/assets/img/user/tech-support.png" class="tab-icon">
 									Soporte
 								</v-tab>
 							</v-tabs>
 							<v-window v-model="tab" class="window__container--table">
-                <!-- Perfil -->
 								<v-window-item
 									:key="1"
 									:value="'tab-1'"
 								>
                   <div class="user__container--window">
                     <div class="user__window--element">
-                      <img src="@/assets/img/user/defaultuser.jpg" class="profile-img">
+                      <img src="@/assets/img/user/defaultuser.jpg" class="profile-img" alt="">
                       <div class="user__window-element--description">
                         <p class="title">Name</p>
                         <p class="tag">Username</p>
