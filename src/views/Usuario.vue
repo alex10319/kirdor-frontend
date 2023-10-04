@@ -229,6 +229,73 @@
                   </div>
                   
 								</v-window-item>
+
+                <!-- Historial -->
+                <v-window-item 
+                :key="4"
+                :value="'tab-4'"
+                >
+                  <!-- Contenedor Central -->
+                  <div class="torneos__content--container">
+                    <div class="section-info__titles">
+                      <h4>Sección de Historial</h4>
+                      <span>En esta pequeña sección de tu perfil te mostramos todo el historial de tu cuenta, desde Torneos en los que participaste hasta tus victorias, derrotas y puntos.</span>
+                    </div>
+                    <div class="torneos__container--cont">
+                        <div class="history__table">
+                              <div class="history__table--header">
+                                <div class="history__table-header--item">
+                                  <i class="mdi mdi-calendar-range"></i>Fecha</div>
+                                <div class="history__table-header--item">
+                                  <i class="mdi mdi-trophy"></i>
+                                  Torneo</div>
+                                <div class="history__table-header--item">
+                                  <i class="mdi mdi-surround-sound"></i>Rondas</div>
+                                <div class="history__table-header--item">
+                                  <i class="mdi mdi-nintendo-game-boy"></i>Juego</div>
+                                <div class="history__table-header--item">
+                                  <i class="mdi mdi-text-short"></i>Resultado</div>
+                                <div class="history__table-header--item">
+                                  <i class="mdi mdi-account-group"></i>Jugadores</div>
+                                <div class="history__table-header--item">
+                                  <i class="mdi mdi-numeric"></i>Puntaje Ganado</div>
+                              </div>
+                              <div class="history__table--body">
+                                <div class="history__table-body--element">
+                                  <div class="history__table-body--item">
+                                    <p>
+                                      <span>2/10/2023</span><span>15:00hs</span>
+                                    </p>
+                                  </div>
+                                  <div class="history__table-body--item">
+                                    <p>
+                                      Mi Torneo
+                                    </p>
+                                  </div>
+                                  <div class="history__table-body--item">
+                                    <p>Paralelas</p>
+                                  </div>
+                                  <div class="history__table-body--item">
+                                    <span class="table__body--item--game">Fortnite
+                                    </span>
+                                  </div>
+                                  <div class="history__table-body--item">
+                                    <p>alex10319#0001 <span class="text-success">Ganador</span></p>
+                                  </div>
+                                  <div class="history__table-body--item">
+                                    <p>25/30</p>
+                                  </div>
+                                  <div class="history__table-body--item">
+                                    <p class="text-warning">+550</p>
+                                  </div>
+                                </div>
+                              </div>
+                        </div>
+                    </div>
+                  </div>
+                </v-window-item>
+                <!-- Final Historial -->
+
                 <v-window-item
                 :key="5"
                 :value="'tab-5'"
@@ -726,6 +793,60 @@
                     </template>
                   </div>
                 </v-window-item>
+                <!-- Juegos -->
+                <v-window-item 
+                :key="6"
+                :value="'tab-6'"
+                >
+                  <!-- Contenedor Central -->
+                  <div class="torneos__content--container">
+                    <div class="section-info__titles">
+                      <h4>Sección de Juegos</h4>
+                      <span>En esta pequeña sección de tu perfil te mostramos tus juegos recientemente agregados, jugados y en los cuales participaste en un Torneo con tus amigos.</span>
+                    </div>
+                    <div class="torneos__container--cont">
+                        <div class="history__table">
+                              <div class="history__table--header">
+                                <div class="history__table-header--item">
+                                  <i class="mdi mdi-nintendo-game-boy"></i>Juego Agregado
+                                </div>
+                                <div class="history__table-header--item">
+                                  <i class="mdi mdi-calendar-range"></i>Fecha
+                                </div>
+                                <div class="history__table-header--item">
+                                  <i class="mdi mdi-account-group"></i>Último Torneo
+                                </div>
+                                <div class="history__table-header--item">
+                                  <i class="mdi mdi-trophy"></i>Ranking
+                                </div>
+                              </div>
+
+                              <div class="history__table--body">
+                                <div class="history__table-body--element">
+                                  <div class="history__table-body--item">
+                                    <span class="table__body--item--game">Fortnite
+                                      <img class="table__body--item--game-img" src="@/assets/img/tournaments/fortnite.jpeg">
+                                    </span>
+                                  </div>
+                                  <div class="history__table-body--item">
+                                    <p>
+                                      <span>2/10/2023</span><span>15:00hs</span>
+                                    </p>
+                                  </div>
+                                  <div class="history__table-body--item">
+                                    <p>
+                                      <span>26/09/2023</span><span>10:00hs</span>
+                                    </p>
+                                  </div>
+                                  <div class="history__table-body--item">
+                                    <p>Top: #<span>54</span></p>
+                                  </div>
+                                </div>
+                              </div>
+                        </div>
+                    </div>
+                  </div>
+                </v-window-item>
 							</v-window>
 						</v-card>
     </div>
@@ -824,6 +945,128 @@
       padding: 0 0px;
       padding-bottom: 15px;
 
+
+      .history__table{
+        width: 100%;
+        display: flex;
+        height: 100%;
+        flex-direction: column;
+        padding-bottom: 20px;
+
+        &--header{
+          width: 100%;
+          min-height: 40px;
+          max-height: 78px;
+          flex:.1;
+          display: grid;
+          grid-template-columns: repeat(7,1fr);
+          background: linear-gradient(-90deg, rgba(255, 81, 47, 0.60) 0%, rgba(255, 81, 47, 0));
+          border-radius: 6px;
+          gap: 0.5rem;
+
+          .history__table-header--item{
+            width: 100%;
+            text-align: center;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-transform: uppercase;
+            cursor: pointer;
+            text-shadow: 0px 0px 3px #000;
+            color: #dddddd;
+            transition: all 0.25s ease-in-out;
+              
+            i{
+              color: #fa1;
+              font-size: 22px;
+              margin-right: 10px;
+            }
+          }
+          .history__table-header--item:hover{
+            color: #ffffff;
+          }
+        }
+
+        &--body{
+          width: 100%;
+          min-height: 200px;
+          flex:1;
+          display: flex;
+          flex-direction: column;
+          margin-top: 0.25rem;
+
+          .history__table-body--element{
+            display: grid;
+            grid-template-columns: repeat(7,1fr);
+            border:1px solid transparent;
+            border-bottom: 1px solid #4449;
+            transition: all 0.25s ease-in-out;
+            cursor: pointer;
+            gap: 0.5rem;
+
+            &:hover{
+              border:1px solid #9999;
+              border-radius: 12px;
+            }
+
+            .history__table-body--item{
+              width: 100%;
+              text-align: center;
+              font-size: 14px;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              padding: 10px;
+                            
+              p{
+                display: flex;
+                align-items: center;
+                gap: 0.25rem;
+              }
+            }
+            .text-success{
+              text-transform: uppercase;
+            }
+          }
+        }
+      }
+
+      .table__body--item--game{
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+
+        .table__body--item--game-img{
+          width: 32px;
+          height: 32px;
+          object-fit: cover;
+          cursor: pointer;
+          border-radius: 50%;
+        }
+      }
+
+      .section-info__titles{
+        margin-bottom: 2rem;
+        display: flex;
+        flex-direction: column;
+        background: rgba(23, 23, 23, 1.0);
+        padding: 0.5rem;
+        border-radius: 6px;
+
+        h4{
+          text-transform: uppercase;
+          font-size: 22px;
+          color: var(--color-primary);
+          text-shadow: 0px 0px 3px #000;
+        }
+        span{
+          color: #bdbdbd;
+          font-size: 17px;
+          text-shadow: 0px 0px 3px #000;
+        }
+      }
+
       .user__container--window{
         width: 100%;
         display: flex;
@@ -904,12 +1147,6 @@
           
         }
       }
-
-      .user-description{
-        
-        
-      }
-
       .user__container--teams{
         .title{
           text-align: center;
