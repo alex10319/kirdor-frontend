@@ -37,7 +37,7 @@ const actions = {
             resolve();
           }).catch((e) => {
             commit('clearAuth');
-            reject(new Error('Token inválido, hackea a tu vieja pvto.'));
+            reject(new Error('Token inválido!'));
           })
         });
       },
@@ -54,6 +54,13 @@ const actions = {
             const publication = response.data.publication;
             resolve(publication);
           }).catch((e)=>reject(e));
+        });
+      },
+      createTeam({commit}: { commit: Commit }, data: FormData){
+        return new Promise((resolve,reject)=>{
+          axiosInstance.post('/createTeam',data).then((response:any) => {
+            resolve(response);
+          }).catch((e) => reject(e));
         });
       }
 }
