@@ -13,7 +13,6 @@
     "atropos": "^2.0.2",
     "axios": "^1.5.0",
     "core-js": "^3.32.0",
-    "date-fns": "^2.30.0",
     "glider-js": "^1.7.8",
     "roboto-fontface": "*",
     "sass": "^1.67.0",
