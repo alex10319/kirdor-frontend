@@ -14,6 +14,15 @@ const actions = {
           }).catch((e) => reject(e));
         });
       },
+      refreshUserData({commit}: { commit: Commit}){
+        return new Promise((resolve,reject)=>{
+          axiosInstance.post('/refreshUserData').then((response: any)=>{
+            const user = response.data.user;
+            commit('setUser',user);
+            resolve(user);
+          }).catch((e) => reject(e));
+        });
+      },
       logout({commit}: { commit: Commit }){
         return new Promise((resolve,reject)=>{
           commit('clearAuth');
