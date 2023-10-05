@@ -231,13 +231,10 @@
                   </div>
                   
 								</v-window-item>
-
-                <!-- Historial -->
                 <v-window-item 
                 :key="4"
                 :value="'tab-4'"
                 >
-                  <!-- Contenedor Central -->
                   <div class="torneos__content--container">
                     <div class="section-info__titles">
                       <h4>Sección de Historial</h4>
@@ -296,8 +293,6 @@
                     </div>
                   </div>
                 </v-window-item>
-                <!-- Final Historial -->
-
                 <v-window-item
                 :key="5"
                 :value="'tab-5'"
@@ -795,12 +790,10 @@
                     </template>
                   </div>
                 </v-window-item>
-                <!-- Juegos -->
                 <v-window-item 
                 :key="6"
                 :value="'tab-6'"
                 >
-                  <!-- Contenedor Central -->
                   <div class="torneos__content--container">
                     <div class="section-info__titles">
                       <h4>Sección de Juegos</h4>
