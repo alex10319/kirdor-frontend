@@ -43,6 +43,8 @@
       try{
         loader.value = true;
         await store.dispatch('createTeam',formData);
+        const myUserData = await store.dispatch('refreshUserData');
+        user.value = myUserData;
         message.value='Tu equipo fue creado correctamente!';
         config.Toast.fire({
           icon: 'success',
@@ -90,8 +92,8 @@
   }
 
 
-  onMounted(() => {
-    user.value = store.getters.user;
+  onMounted(async () => {
+    user.value = await store.dispatch('refreshUserData');
   });
 </script>
 <template>
@@ -806,7 +808,7 @@
                     </div>
                     <div class="torneos__container--cont">
                         <div class="history__table">
-                              <div class="history__table--header">
+                              <div class="history__table--header" style="grid-template-columns: repeat(4,1fr);">
                                 <div class="history__table-header--item">
                                   <i class="mdi mdi-nintendo-game-boy"></i>Juego Agregado
                                 </div>
@@ -822,7 +824,7 @@
                               </div>
 
                               <div class="history__table--body">
-                                <div class="history__table-body--element">
+                                <div class="history__table-body--element" style="grid-template-columns: repeat(4,1fr);">
                                   <div class="history__table-body--item">
                                     <span class="table__body--item--game">Fortnite
                                       <img class="table__body--item--game-img" src="@/assets/img/tournaments/fortnite.jpeg">
@@ -952,6 +954,7 @@
         height: 100%;
         flex-direction: column;
         padding-bottom: 20px;
+        padding: 10px;
 
         &--header{
           width: 100%;
@@ -960,7 +963,7 @@
           flex:.1;
           display: grid;
           grid-template-columns: repeat(7,1fr);
-          background: linear-gradient(-90deg, rgba(255, 81, 47, 0.60) 0%, rgba(255, 81, 47, 0));
+          background: linear-gradient(10deg, rgba(255, 81, 47, 0.30) 0%, rgba(255, 81, 47, 0));
           border-radius: 6px;
           gap: 0.5rem;
 
@@ -971,8 +974,6 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            text-transform: uppercase;
-            cursor: pointer;
             text-shadow: 0px 0px 3px #000;
             color: #dddddd;
             transition: all 0.25s ease-in-out;
@@ -1008,6 +1009,8 @@
             &:hover{
               border:1px solid #9999;
               border-radius: 12px;
+              transform: scale(1.01);
+              background:#222;
             }
 
             .history__table-body--item{
