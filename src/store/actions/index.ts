@@ -64,6 +64,13 @@ const actions = {
             resolve(publication);
           }).catch((e)=>reject(e));
         });
+      },
+      createTeam({commit}: { commit: Commit }, data: FormData){
+        return new Promise((resolve,reject) => {
+          axiosInstance.post('/createTeam',data).then(()=>{
+            resolve();
+          }).catch((e)=>reject(e));
+        });
       }
 }
 
