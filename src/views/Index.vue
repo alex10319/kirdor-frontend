@@ -230,41 +230,21 @@
             </div>
           </div>
         </div>
-        <div class="end-page-footer">
-        <div class="end-page-footer-container">
-          <div class="footer-side footer-side-1">
-            <div class="footer-logo-container">
-              <img src="@/assets/logo.png" alt="">
-            </div>
-            <div class="footer-spacer"></div>
-            <div class="footer-description">
-              <p class="footer-description-p"><i class="footer-icon ri-chat-smile-2-line"></i> soporte@kirdor-company.com</p>
-              <p class="footer-description-p"><i class="footer-icon ri-corner-down-right-line"></i> Seguridad y Protección</p>
-              <p class="footer-description-p"><i class="footer-icon ri-question-answer-line"></i> Asistencia en Tiempo Real</p>
-            </div>
-            <div class="footer-spacer"></div>
-            <div class="footer-menu">
-              <li class="nav-li" @click="this.$router.push('/')"><p>Inicio</p></li>
-              <li class="nav-li"><p>Comunidad</p></li>
-              <li class="nav-li"><p>Torneos</p></li>
-              <li class="nav-li"><p>Acerca de</p></li>
-              <li class="nav-li"><p>Soporte</p></li>
-            </div>
-          </div>
-          <div class="footer-side footer-side-2">Todos los derechos reservados kirdor esports 2023-2030</div>
-        </div>
-      </div>
+        
       </div>
   </main>
+  <Footer />
 </template>
 <script>
 // @ is an alias to /src
 import Header from '@/components/Header.vue';
 import Glider from 'glider-js';
+import Footer from '@/components/Footer.vue';
 export default {
   name: 'HomeView',
   components: {
-    Header
+    Header,
+    Footer
   },
   data(){
     return {

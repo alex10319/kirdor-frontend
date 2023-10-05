@@ -17,8 +17,8 @@ const onScroll = () => {
 
 const closeSesion = async () => {
     try{
-			await store.dispatch("logout");
-			router.push('/login');
+		await store.dispatch("logout");
+		router.push('/login');
     }catch(e:any){
       if(e.response && e.response.data && e.response.data.message){
         mensaje.value = e.response.data.message;
@@ -56,7 +56,6 @@ onBeforeUnmount(() => {
                             <li class="nav-li" @click="router.push('/')"><p>Inicio</p></li>
                             <li class="nav-li" @click="router.push('/comunidad')"><p>Comunidad</p></li>
                             <li class="nav-li" @click="router.push('/torneos')"><p>Torneos</p></li>
-                            <li class="nav-li" @click="router.push('/acerca')"><p>Acerca de</p></li>
                             <li class="nav-li" @click="router.push('/soporte')"><p>Soporte</p></li>
                         </ul>
                     </nav>
@@ -70,7 +69,7 @@ onBeforeUnmount(() => {
             </template>
             <template v-else>
                 <div class="nav-ul">
-                    <li class="nav-li li-special"><p>{{ user.username }}</p></li>
+                    <li class="nav-li li-special" @click="router.push('/usuario')"><p>{{ user.username }}</p></li>
                     <li class="nav-li" @click="closeSesion"><p>Cerrar Sesión</p></li>
                 </div>
             </template>
@@ -86,7 +85,6 @@ onBeforeUnmount(() => {
                         <li class="nav-li" @click="router.push('/')"><p>Inicio</p></li>
                         <li class="nav-li"><p>Comunidad</p></li>
                         <li class="nav-li"><p>Torneos</p></li>
-                        <li class="nav-li"><p>Acerca de</p></li>
                         <li class="nav-li"><p>Soporte</p></li>
                     </ul>
                 </nav>
@@ -99,7 +97,7 @@ onBeforeUnmount(() => {
             </template>
             <template v-else>
                 <div class="nav-ul">
-                    <li class="nav-li li-special"><p>{{ user.username }}</p></li>
+                    <li class="nav-li li-special" @click="router.push('/usuario')"><p>{{ user.username }}</p></li>
                     <li class="nav-li" @click="closeSesion"><p>Cerrar Sesión</p></li>
                 </div>
             </template>

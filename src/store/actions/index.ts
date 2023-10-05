@@ -14,10 +14,40 @@ const actions = {
           }).catch((e) => reject(e));
         });
       },
+      refreshUserData({commit}: { commit: Commit}){
+        return new Promise((resolve,reject)=>{
+          axiosInstance.post('/refreshUserData').then((response: any)=>{
+            const user = response.data.user;
+            commit('setUser',user);
+            resolve(user);
+          }).catch((e) => reject(e));
+        });
+      },
       logout({commit}: { commit: Commit }){
         return new Promise((resolve,reject)=>{
           commit('clearAuth');
           resolve();
+        });
+      },
+      verifySession({commit}: {commit: Commit}){
+        return new Promise((resolve,reject)=>{
+          const token = localStorage.getItem('token');
+          const user = localStorage.getItem('user');
+          const isAuthenticated = localStorage.getItem('isAuthenticated');
+
+          // token -> hay token?
+          // !token -> no hay token?
+          if(!token || !user || !isAuthenticated){
+            commit('clearAuth'); // <- le borra la sesión!
+            reject();
+          }
+
+          axiosInstance.post('/verifyToken').then(()=>{
+            resolve();
+          }).catch((e) => {
+            commit('clearAuth');
+            reject(new Error('Token inválido, hackea a tu vieja pvto.'));
+          })
         });
       },
       register({commit}: { commit: Commit }, data:Object){
@@ -28,7 +58,7 @@ const actions = {
         });
       },
       uploadPublication({commit}: { commit: Commit }, data: FormData){
-        return new Promise((resolve,reject)=>{
+        return new Promise((resolve,reject) => {
           axiosInstance.post('/uploadPublication',data).then((response:any)=>{
             const publication = response.data.publication;
             resolve(publication);

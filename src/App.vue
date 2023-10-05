@@ -6,14 +6,26 @@
   </router-view>
 </template>
 
-<script lang="ts">
-import { Options, Vue } from 'vue-class-component';
+<script setup lang="ts">
+import { ref, onMounted } from 'vue';
+import { useStore } from 'vuex';
+import router from './router';
 
-@Options({
-  components: {
+const store = useStore();
+onMounted(async () => {
+
+  const myToken = localStorage.getItem('token');
+  const user = localStorage.getItem('user');
+  const authenticated = (localStorage.getItem('isAuthenticated') == 'true');
+
+  if(myToken || user || authenticated){
+    try{
+      await store.dispatch('verifySession');
+    }catch(e:any){
+      router.push('/login');
+    }
   }
-})
-export default class App extends Vue {}
+});
 </script>
 
 <style>
