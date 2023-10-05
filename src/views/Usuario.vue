@@ -1,9 +1,16 @@
 <script lang="ts" setup>
   import Header from '@/components/Header.vue';
   import Footer from '@/components/Footer.vue';
-
+  import { User } from '@/store/types/state';
   import { ref, onMounted } from 'vue';
+  import { useStore } from 'vuex';
+  import config from '@/config';
+  import { format, parseISO } from 'date-fns';
+  import { es } from 'date-fns/locale';
 
+  const store = useStore();
+
+  const user = ref<User | null>(null);
   const tab = ref<any>(null);
   const team__title = ref<string | null>(null);
   const team__description = ref<string | null>(null);
@@ -205,9 +212,19 @@
                   </div>
                   <div class="user-description mt-4 text-white">
                     <h4 class="mb-4 text-2xl">Cambios Generales</h4>
-                    <v-file-input append-inner-icon="mdi-paperclip" accept="image/*" prepend-icon="" label="Cambiar foto de perfil" variant="solo" bg-color="#2229" class="v-theme--dark"/>
-                    <v-text-field label="Cambiar tag de usuario" variant="solo" bg-color="#2229" class="v-theme--dark"/>
-                    <v-textarea label="Cambiar descripción de usuario" variant="solo" bg-color="#2229" class="v-theme--dark"/>
+                    <v-file-input
+                     append-inner-icon="mdi-paperclip" accept="image/*" 
+                     prepend-icon="" label="Cambiar foto de perfil" variant="solo" 
+                     bg-color="#2229" class="v-theme--dark"
+                     />
+
+                    <v-text-field label="Cambiar tag de usuario" 
+                    variant="solo" bg-color="#2229" 
+                    class="v-theme--dark"/>
+
+                    <v-textarea label="Cambiar descripción de usuario"
+                     variant="solo" bg-color="#2229" 
+                     class="v-theme--dark"/>
                     <v-col class="text-right">
                       <v-btn color="warning">Guardar cambios</v-btn>
                     </v-col>
@@ -833,7 +850,21 @@
   <Footer/>
 </template>
 <style lang="scss">
+.zoom-in{
+  transition: transform .3s ease-in-out;
+  &:hover{
+    transform: scale(1.01);
+  }
+}
 .user__page--container{
+  .v-field__append-inner{
+    i{
+      color: #fff;
+    }
+  }
+  .v-field__field{
+            color: #fff;
+          }
   width: 100%;
   height: 100%;
   .user__banner--container{
@@ -1120,12 +1151,278 @@
         }
         .cta__see-teams--list{
           color: #fff;
-        }
-        .v-field__field{
-            color: #fff;
+          background: var(--bg-primary);
+          text-transform:none;
+
+          &:hover{
+            box-shadow: 0 0 15px #fa1;
           }
+        }
+
+        .create__team--container{
+          .create__team--title{
+            font-size: 20px;
+          }
+          .create__team--form{
+            border-radius: 15px;
+
+            .cta__create--team{
+              background:#222;
+              border:1px solid #fff2;
+              border-radius: 10px;
+              font-weight: 200;
+              width: 100%;
+            }
+          }
+        }
+
+        .user__container--team{
+          display:flex;
+          flex-direction: column;
+          gap:15px;
+          width: 100%;
+          padding: 10px;
+          background:#3333;
+          border-radius: 10px;
+
+          .user__container-team--header{
+            display: flex;
+            width: 100%;
+            justify-content:space-between;
+            padding: 15px;
+            gap:15px;
+
+            
+
+            .user__container-team--header__img{
+              flex:1;
+              max-width: 350px;
+              height:350px;
+              object-fit: cover;
+              background:#2224;
+              border-radius: 15px;
+              border:1px solid #fff1;
+              overflow:hidden;
+              position: relative;
+              background:#111;
+              box-shadow: 0 0 15px #0009;
+              backdrop-filter: blur(15px);
+              
+              &:before{
+                  content: '';
+                  position:absolute;
+                  width: 100px;
+                  z-index: 1;
+                  height: 100px;
+                  background:#fa1;
+                  top:-100px;
+                  left: -100px;
+                  box-shadow: 100px 120px 250px #fa1;
+                }
+
+              img{
+                width:100%;
+                height:100%;
+                object-fit: cover;
+              }
+            }
+            .user__container-team--header__description{
+              flex:1;
+              display: flex;
+              flex-direction: column;
+              gap:5px;
+              text-align: initial;
+              align-items: initial;
+              padding: 15px;
+              border-radius: 15px;
+              background: #2224;
+              border:1px solid #fff1;
+              overflow:hidden;
+              position: relative;
+              background:#111;
+              backdrop-filter: blur(15px);
+              box-shadow: 0 0 15px #0009;
+              
+
+              &:before{
+                content: '';
+                position:absolute;
+                width: 100px;
+                z-index: 1;
+                height: 100px;
+                background:#fa1;
+                bottom:-100px;
+                right: -100px;
+                box-shadow: -100px -120px 250px #fa1;
+              }
+
+              .team__title{
+                font-size: 25px;
+                  line-height: 35px;
+                  color: var(--color-primary);
+                .subtitle{
+                  font-size: 17px;
+                  line-height: 25px;
+                  text-decoration: underline;
+                  color: #fff;
+                }
+              }
+              .team__description{
+                color: #aaa;
+                font-size: 18px;
+                .subtitle{
+                  font-size: 17px;
+                  line-height: 25px;
+                  text-decoration: underline;
+                  color: #fff;
+                }
+              }
+            }
+          }
+          .user__container-team--body{
+
+            .cta__viewAllDetails{
+              padding: 10px;
+              border-radius: 15px;
+              border:1px solid #fff1;
+              background:#111;
+              box-shadow: 0 0 15px #0009;
+              margin-top: 15px;
+              cursor: pointer;
+              transition: transform .3s;
+
+              &:hover{
+                transform: scale(1.01);
+              }
+            }
+            &__users{
+              display: flex;
+              flex-direction: column;
+              gap: 10px;
+              padding: 10px 20px;
+
+              &--list{
+                display: flex;
+                flex-direction: row;
+                gap:10px;
+                flex-wrap: wrap;
+
+                &-box{
+                  flex:1;
+                  min-width: 250px;
+                  max-width: 350px;
+                  height: 250px;
+                  border-radius: 10px;
+                  border:1px solid #fff1;
+                  background:#111;
+                  position: relative;
+                  overflow:hidden;
+                  box-shadow: 0 0 15px #0009;
+
+                  img{
+                    width: 100%;
+                    height: 100%;
+                    object-fit:cover;
+                  }
+
+                  .this__box--shadow{
+                    width: 100%;
+                    height: 40%;
+                    bottom: -2%;
+                    position: absolute;
+                    z-index: 1;
+                    background: linear-gradient(0deg, rgb(0, 0, 0) 0%, rgba(51, 51, 51, 0) 90%);
+                  }
+
+                  .this__box--description{
+                    display: flex;
+                    flex-direction: column;
+                    gap:5px;
+                    color: #fff;
+                    position:absolute;
+                    z-index: 2;
+                    bottom:10px;
+                    left:15px;
+                  }
+                }
+              }
+            }
+          }
+
+          .user__container-team--table{
+            padding: 10px 20px;
+            .torneos__table{
+								width: 100%;
+								display: flex;
+								height: 100%;
+								flex-direction: column;
+								padding-bottom: 20px;
+
+								&--header{
+									width: 100%;
+									min-height: 40px;
+									max-height: 70px;
+									flex:.1;
+									display: grid;
+									grid-template-columns: repeat(7,1fr);
+									background: linear-gradient(to left, rgba(255, 81, 47, .6) 0%, rgba(255, 81, 47, 0));
+
+									.torneos__table-header--item{
+										width: 100%;
+										text-align: center;
+										font-size: 10px;
+										display: flex;
+										align-items: center;
+										justify-content: center;
+										text-transform: uppercase;
+										i{
+											color: var(--color-primary);
+											font-size: 20px;
+											margin-right: 10px;
+										}
+									}
+								}
+								&--body{
+									width: 100%;
+									min-height: 400px;
+									flex:1;
+									display: flex;
+									flex-direction: column;
+									padding: 10px;
+
+									.torneos__table-body--element{
+										display: grid;
+										grid-template-columns: repeat(7,1fr);
+										border-bottom: 1px solid #4449;
+										transition: background .3s, transform .3s;
+										&:hover{
+												border:1px solid #9999;
+												border-radius: 25px;
+												background: #9992;
+												transform: scale(1.02);
+											}
+										.torneos__table-body--item{
+											width: 100%;
+											text-align: center;
+											font-size: 12px;
+											display: flex;
+											align-items: center;
+											justify-content: center;
+											padding: 10px;
+											
+											p{
+												display: flex;
+												flex-direction: column;
+											}
+										}
+									}
+								}
+							}
+          }
+        }
       }
     }
+    
   }
 }
 </style>
