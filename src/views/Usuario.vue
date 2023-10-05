@@ -142,8 +142,8 @@
 									Perfil
 								</v-tab>
 								<v-tab value="tab-2" class="tab--content">
-									<img src="@/assets/img/user/configuraciones.png" class="tab-icon">
-									Configuración
+									<img src="@/assets/img/user/control-de-juego.png" class="tab-icon">
+									Juegos
 								</v-tab>
 								<v-tab value="tab-3" class="tab--content">
 									<img src="@/assets/img/user/diagrama.png" class="tab-icon">
@@ -158,12 +158,8 @@
 									Equipos
 								</v-tab>
 								<v-tab value="tab-6" class="tab--content">
-									<img src="@/assets/img/user/control-de-juego.png" class="tab-icon">
-									Juegos
-								</v-tab>
-								<v-tab value="tab-7" class="tab--content">
-									<img src="@/assets/img/user/tech-support.png" class="tab-icon">
-									Soporte
+									<img src="@/assets/img/user/configuraciones.png" class="tab-icon">
+									Configuración
 								</v-tab>
 							</v-tabs>
 							<v-window v-model="tab" class="window__container--table">
@@ -231,6 +227,58 @@
                   </div>
                   
 								</v-window-item>
+                <v-window-item 
+                :key="2"
+                :value="'tab-2'"
+                >
+                  <div class="torneos__content--container">
+                    <div class="section-info__titles">
+                      <h4>Sección de Juegos</h4>
+                      <span>En esta pequeña sección de tu perfil te mostramos tus juegos recientemente agregados, jugados y en los cuales participaste en un Torneo con tus amigos.</span>
+                    </div>
+                    <div class="torneos__container--cont">
+                        <div class="history__table">
+                              <div class="history__table--header" style="grid-template-columns: repeat(4,1fr);">
+                                <div class="history__table-header--item">
+                                  <i class="mdi mdi-nintendo-game-boy"></i>Juego Agregado
+                                </div>
+                                <div class="history__table-header--item">
+                                  <i class="mdi mdi-calendar-range"></i>Fecha
+                                </div>
+                                <div class="history__table-header--item">
+                                  <i class="mdi mdi-account-group"></i>Último Torneo
+                                </div>
+                                <div class="history__table-header--item">
+                                  <i class="mdi mdi-trophy"></i>Ranking
+                                </div>
+                              </div>
+
+                              <div class="history__table--body">
+                                <div class="history__table-body--element" style="grid-template-columns: repeat(4,1fr);">
+                                  <div class="history__table-body--item">
+                                    <span class="table__body--item--game">Fortnite
+                                      <img class="table__body--item--game-img" src="@/assets/img/tournaments/fortnite.jpeg">
+                                    </span>
+                                  </div>
+                                  <div class="history__table-body--item">
+                                    <p>
+                                      <span>2/10/2023</span><span>15:00hs</span>
+                                    </p>
+                                  </div>
+                                  <div class="history__table-body--item">
+                                    <p>
+                                      <span>26/09/2023</span><span>10:00hs</span>
+                                    </p>
+                                  </div>
+                                  <div class="history__table-body--item">
+                                    <p>Top: #<span>54</span></p>
+                                  </div>
+                                </div>
+                              </div>
+                        </div>
+                    </div>
+                  </div>
+                </v-window-item>
                 <v-window-item 
                 :key="4"
                 :value="'tab-4'"
@@ -788,58 +836,6 @@
                         </div>
                       </div>
                     </template>
-                  </div>
-                </v-window-item>
-                <v-window-item 
-                :key="6"
-                :value="'tab-6'"
-                >
-                  <div class="torneos__content--container">
-                    <div class="section-info__titles">
-                      <h4>Sección de Juegos</h4>
-                      <span>En esta pequeña sección de tu perfil te mostramos tus juegos recientemente agregados, jugados y en los cuales participaste en un Torneo con tus amigos.</span>
-                    </div>
-                    <div class="torneos__container--cont">
-                        <div class="history__table">
-                              <div class="history__table--header" style="grid-template-columns: repeat(4,1fr);">
-                                <div class="history__table-header--item">
-                                  <i class="mdi mdi-nintendo-game-boy"></i>Juego Agregado
-                                </div>
-                                <div class="history__table-header--item">
-                                  <i class="mdi mdi-calendar-range"></i>Fecha
-                                </div>
-                                <div class="history__table-header--item">
-                                  <i class="mdi mdi-account-group"></i>Último Torneo
-                                </div>
-                                <div class="history__table-header--item">
-                                  <i class="mdi mdi-trophy"></i>Ranking
-                                </div>
-                              </div>
-
-                              <div class="history__table--body">
-                                <div class="history__table-body--element" style="grid-template-columns: repeat(4,1fr);">
-                                  <div class="history__table-body--item">
-                                    <span class="table__body--item--game">Fortnite
-                                      <img class="table__body--item--game-img" src="@/assets/img/tournaments/fortnite.jpeg">
-                                    </span>
-                                  </div>
-                                  <div class="history__table-body--item">
-                                    <p>
-                                      <span>2/10/2023</span><span>15:00hs</span>
-                                    </p>
-                                  </div>
-                                  <div class="history__table-body--item">
-                                    <p>
-                                      <span>26/09/2023</span><span>10:00hs</span>
-                                    </p>
-                                  </div>
-                                  <div class="history__table-body--item">
-                                    <p>Top: #<span>54</span></p>
-                                  </div>
-                                </div>
-                              </div>
-                        </div>
-                    </div>
                   </div>
                 </v-window-item>
 							</v-window>

@@ -1,3 +1,21 @@
+export interface Team {
+  id: Number,
+  team_id: String,
+  title: String,
+  description: String,
+  photo: String,
+  owner_id: String,
+  users_inside: String,
+  created_at: String,
+  owner_stats: {
+    name: String,
+    username: String,
+    email: String,
+    photo: String,
+    created_at: String
+  }
+}
+
 export interface User {
   created_at: String,
   email: String,
@@ -9,6 +27,7 @@ export interface User {
   user_id: String,
   username: String,
   photo: String,
+  team: Array<Team>
 }
 
 export interface Login {
