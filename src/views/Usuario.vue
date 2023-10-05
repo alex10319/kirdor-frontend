@@ -19,6 +19,7 @@
   const loader = ref<boolean>(false);
   const message = ref<String | any>('');
   const teamStats = ref<any>(null);
+  const apiUrl = ref<String>('');
 
   const verifyInput = (value:any) => {
     if(value) return true;
@@ -91,8 +92,8 @@
     return formattedDate.charAt(0).toUpperCase() + formattedDate.slice(1); // Capitalizar la primera letra del mes
   }
 
-
   onMounted(async () => {
+    apiUrl.value = config.url;
     user.value = await store.dispatch('refreshUserData');
   });
 </script>
@@ -155,7 +156,7 @@
 								</v-tab>
 								<v-tab value="tab-5" class="tab--content">
 									<img src="@/assets/img/user/reunion.png" class="tab-icon">
-									Equipos
+									Mi Equipo
 								</v-tab>
 								<v-tab value="tab-6" class="tab--content">
 									<img src="@/assets/img/user/configuraciones.png" class="tab-icon">
@@ -388,7 +389,7 @@
                       <div class="user__container--team">
                         <div class="user__container-team--header">
                           <div class="user__container-team--header__img">
-                            <img src="@/assets/img/user/teams/default.png">
+                            <img :src="`${apiUrl}/teams_photos/${user.team[0].team_id}/${user.team[0].photo}`">
                           </div>
                           <div class="user__container-team--header__description">
                             <h4 class="team__title mt-2">

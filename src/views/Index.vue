@@ -1,3 +1,109 @@
+<script setup lang="ts">
+// @ is an alias to /src
+import {ref,onMounted} from 'vue';
+import Header from '@/components/Header.vue';
+import Footer from '@/components/Footer.vue';
+
+  const gliderInstance = ref<any>(null);
+  const gliderInstance2 = ref<any>(null);
+  const characteres = ref<Array<{title: String, img: any}>>([
+        {
+          title: 'Valorant',
+          img: 'src/assets/img/characteres/lol.webp'
+        },
+        {
+          title: 'Call Of Duty Mobile',
+          img: 'src/assets/img/characteres/callofduty2.png'
+        },
+        {
+          title: 'Pokemon GO',
+          img: 'src/assets/img/characteres/pokemon2.png'
+        },
+        {
+          title: 'Free Fire',
+          img: 'src/assets/img/characteres/freefire.png'
+        },
+        {
+          title: 'Yu Gi Oh',
+          img: 'src/assets/img/characteres/yu-gi-oh.webp'
+        },
+        {
+          title: 'Call Of Duty Warzone',
+          img: 'src/assets/img/characteres/codwarzone.png'
+        },
+        {
+          title: 'CS Global Offensive',
+          img: 'src/assets/img/characteres/csgo.png'
+        },
+        {
+          title: 'Ea Sports FC',
+          img: 'src/assets/img/characteres/pes2.png'
+        },
+        {
+          title: 'PES/eFootball',
+          img: 'src/assets/img/characteres/fifa.png'
+        }
+      ]);
+
+  // const createGlider = () => {
+  //     gliderInstance.value = new Glider(document.querySelector('.glider'), {
+  //       slidesToShow: 4.5,
+  //       slidesToScroll: 4.5,
+  //       draggable: true,
+  //       dots: '.dots',
+  //       arrows: {
+  //         prev: '.glider-prev',
+  //         next: '.glider-next'
+  //       }
+  //     });
+  //     gliderInstance2.value = new Glider(document.querySelector('.about-slider'), {
+  //       slidesToShow: 1,
+  //       slidesToScroll: 1,
+  //       draggable: true,
+  //       dots: '.dots',
+  //       autoplay: {
+  //         delay: 500, // Set the delay between slide transitions (in milliseconds)
+  //         disableOnInteraction: false
+  //       },
+  //       arrows: {
+  //         prev: '.games-arrow-left',
+  //         next: '.games-arrow-right'
+  //       }
+  //     });
+  // }
+  // const sliderAuto = (slider:any, miliseconds:any,index:any) => {
+  //     const slidesCount = slider.track.childElementCount;
+  //     let slideTimeout:any = null;
+  //     let nextIndex = index;
+
+  //     function slide () {
+  //       slideTimeout = setTimeout(
+  //         function () {
+  //           if (nextIndex >= slidesCount ) {
+  //             nextIndex = 0;
+  //           }
+  //           slider.scrollItem(nextIndex++);
+  //         },
+  //         miliseconds
+  //       );
+  //     }
+
+  //     slider.ele.addEventListener('glider-animated', function() {
+  //       window.clearInterval(slideTimeout);
+  //       slide();
+  //     });
+
+  //     slide();
+  // }
+
+  onMounted(()=>{
+    // createGlider(); // Create the Glider when the component mounts
+
+    // sliderAuto(gliderInstance, 5000,4)
+    // sliderAuto(gliderInstance2, 5000,1)
+  });
+</script>
+
 <template>
   <Header/>
   <main id="main">
@@ -235,164 +341,3 @@
   </main>
   <Footer />
 </template>
-<script>
-// @ is an alias to /src
-import Header from '@/components/Header.vue';
-import Glider from 'glider-js';
-import Footer from '@/components/Footer.vue';
-export default {
-  name: 'HomeView',
-  components: {
-    Header,
-    Footer
-  },
-  data(){
-    return {
-      gliderInstance: null,
-      gliderInstance2: null,
-      characteres: [
-        {
-          title: 'Valorant',
-          img: 'src/assets/img/characteres/lol.webp'
-        },
-        {
-          title: 'Call Of Duty Mobile',
-          img: 'src/assets/img/characteres/callofduty2.png'
-        },
-        {
-          title: 'Pokemon GO',
-          img: 'src/assets/img/characteres/pokemon2.png'
-        },
-        {
-          title: 'Free Fire',
-          img: 'src/assets/img/characteres/freefire.png'
-        },
-        {
-          title: 'Yu Gi Oh',
-          img: 'src/assets/img/characteres/yu-gi-oh.webp'
-        },
-        {
-          title: 'Call Of Duty Warzone',
-          img: 'src/assets/img/characteres/codwarzone.png'
-        },
-        {
-          title: 'CS Global Offensive',
-          img: 'src/assets/img/characteres/csgo.png'
-        },
-        {
-          title: 'Ea Sports FC',
-          img: 'src/assets/img/characteres/pes2.png'
-        },
-        {
-          title: 'PES/eFootball',
-          img: 'src/assets/img/characteres/fifa.png'
-        }
-      ]
-    }
-  },
-  mounted() {
-      if (this.gliderInstance) {
-        this.gliderInstance.destroy(); // Destroy the Glider instance
-        this.gliderInstance = null; // Reset the reference
-      }
-    this.createGlider(); // Create the Glider when the component mounts
-
-    this.sliderAuto(this.gliderInstance, 5000,4)
-    this.sliderAuto(this.gliderInstance2, 5000,1)
-  },
-  beforeDestroy() {
-      if (this.gliderInstance) {
-        this.gliderInstance.destroy();
-        this.gliderInstance = null;
-        this.gliderInstance2.destroy();
-        this.gliderInstance2 = null;
-      }
-    this.destroyGlider(); // Destroy the Glider before the component is destroyed
-  },
-  beforeRouteUpdate(to, from, next) {
-      if (this.gliderInstance) {
-        this.gliderInstance.destroy(); // Destroy the Glider instance
-        this.gliderInstance = null; // Reset the reference
-        this.gliderInstance2.destroy();
-        this.gliderInstance2 = null;
-      }
-    this.destroyGlider(); // Destroy the Glider before the route is updated
-    next(); // Continue with the route update
-  },
-  updated() {
-      if (this.gliderInstance) {
-        this.gliderInstance.destroy(); // Destroy the Glider instance
-        this.gliderInstance = null; // Reset the reference
-        this.gliderInstance2.destroy();
-        this.gliderInstance2 = null;
-      }
-    this.createGlider(); // Create the Glider after the route is updated
-  },
-  methods: {
-    createGlider() {
-      if (this.gliderInstance) {
-        this.gliderInstance.destroy(); // Destroy the Glider instance
-        this.gliderInstance = null; // Reset the reference
-        this.gliderInstance2.destroy();
-        this.gliderInstance2 = null;
-      }
-      this.gliderInstance = new Glider(document.querySelector('.glider'), {
-        slidesToShow: 4.5,
-        slidesToScroll: 4.5,
-        draggable: true,
-        dots: '.dots',
-        arrows: {
-          prev: '.glider-prev',
-          next: '.glider-next'
-        }
-      });
-      this.gliderInstance2 = new Glider(document.querySelector('.about-slider'), {
-        slidesToShow: 1,
-        slidesToScroll: 1,
-        draggable: true,
-        dots: '.dots',
-        autoplay: {
-          delay: 500, // Set the delay between slide transitions (in milliseconds)
-          disableOnInteraction: false
-        },
-        arrows: {
-          prev: '.games-arrow-left',
-          next: '.games-arrow-right'
-        }
-      });
-    },
-    sliderAuto(slider, miliseconds,index) {
-      const slidesCount = slider.track.childElementCount;
-      let slideTimeout = null;
-      let nextIndex = index;
-
-      function slide () {
-        slideTimeout = setTimeout(
-          function () {
-            if (nextIndex >= slidesCount ) {
-              nextIndex = 0;
-            }
-            slider.scrollItem(nextIndex++);
-          },
-          miliseconds
-        );
-      }
-
-      slider.ele.addEventListener('glider-animated', function() {
-        window.clearInterval(slideTimeout);
-        slide();
-      });
-
-      slide();
-    },
-    destroyGlider() {
-      if (this.gliderInstance) {
-        this.gliderInstance.destroy(); // Destroy the Glider instance
-        this.gliderInstance = null; // Reset the reference
-        this.gliderInstance2.destroy();
-        this.gliderInstance2 = null;
-      }
-    }
-  }
-}
-</script>

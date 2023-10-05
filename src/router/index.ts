@@ -1,25 +1,16 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router'
 import store from '@/store'
-import HomeView from '../views/Index.vue'
-import LoginView from '../views/Login.vue'
-import RegisterView from '../views/Register.vue'
-import ComunidadView from '../views/Comunidad.vue'
-import TorneosView from '../views/Torneos.vue'
-import AcercaView from '../views/Acerca.vue'
-import SoporteView from '../views/Soporte.vue'
-import usuarioView from '../views/Usuario.vue'
-
 
 const routes: Array<RouteRecordRaw> = [
   {
     path: '/',
     name: 'home',
-    component: HomeView
+    component: () => import('../views/Index.vue')
   },
   {
     path: '/login',
     name: 'login',
-    component: LoginView,
+    component: () => import('../views/Login.vue'),
     beforeEnter: (to, from, next) => {
       if (store.getters.user && store.getters.token) {
         next({ name: 'comunidad' }); // Redirige al panel si el usuario está autenticado
@@ -31,7 +22,7 @@ const routes: Array<RouteRecordRaw> = [
   {
     path: '/register',
     name: 'register',
-    component: RegisterView,
+    component: () => import('../views/Register.vue'),
     beforeEnter: (to, from, next) => {
       if (store.getters.user && store.getters.token) {
         next({ name: 'comunidad' }); // Redirige al panel si el usuario está autenticado
@@ -43,7 +34,7 @@ const routes: Array<RouteRecordRaw> = [
   {
     path: '/comunidad',
     name: 'comunidad',
-    component: ComunidadView,
+    component: () => import('../views/Comunidad.vue'),
     beforeEnter: (to, from, next) => {
       if (!store.getters.user && !store.getters.token) {
         next({ name: 'login' }); // Redirige al panel si el usuario está autenticado
@@ -55,7 +46,7 @@ const routes: Array<RouteRecordRaw> = [
   {
     path: '/usuario',
     name: 'usuario',
-    component: usuarioView,
+    component: () => import('../views/Usuario.vue'),
     beforeEnter: (to, from, next) => {
       if (!store.getters.user && !store.getters.token) {
         next({ name: 'login' }); // Redirige al panel si el usuario está autenticado
@@ -67,17 +58,17 @@ const routes: Array<RouteRecordRaw> = [
   {
     path: '/torneos',
     name: 'torneos',
-    component: TorneosView
+    component: () => import('../views/Torneos.vue')
   },
   {
     path: '/acerca',
     name: 'acerca',
-    component: AcercaView
+    component: () => import('../views/Acerca.vue')
   },
   {
     path: '/soporte',
     name: 'soporte',
-    component: SoporteView
+    component:  () => import('../views/Soporte.vue')
   }
 ]
 

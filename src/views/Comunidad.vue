@@ -74,6 +74,7 @@ const uploadPublication = async () => {
 const openFile = () => {
 	fileInput.value.click();
 }
+
 const handleFileChange = (event:any) => {
 	console.log(event);
 	const selectedFile = event.target.files[0];
