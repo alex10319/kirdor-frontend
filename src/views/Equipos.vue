@@ -223,7 +223,7 @@ onMounted(()=>{
 
 				&:hover{
 					transition: all 0.3s ease-out;
-					transform: scale(1.05);
+					transform: scale(1.01);
 					filter:drop-shadow(0 0 15px #22f4) !important;
 				}
 
