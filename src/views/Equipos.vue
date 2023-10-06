@@ -50,7 +50,7 @@ onMounted(()=>{
 					<div class="teams__view--container-cards__card--description">
 						<img src="@/assets/img/drake2.webp" class="teams__view--container-cards__card--img" />
 						<div class="description__content">
-							<p>Team title</p>
+							<h4 class="title">Título del equipo</h4>
 							<p>team description</p>
 						</div>
 					</div>
@@ -68,7 +68,7 @@ onMounted(()=>{
 					<div class="teams__view--container-cards__card--description">
 						<img src="@/assets/img/drake2.webp" class="teams__view--container-cards__card--img" />
 						<div class="description__content">
-							<p>Team title</p>
+							<h4 class="title">Título del equipo</h4>
 							<p>team description</p>
 						</div>
 					</div>
@@ -86,7 +86,7 @@ onMounted(()=>{
 					<div class="teams__view--container-cards__card--description">
 						<img src="@/assets/img/drake2.webp" class="teams__view--container-cards__card--img" />
 						<div class="description__content">
-							<p>Team title</p>
+							<h4 class="title">Título del equipo</h4>
 							<p>team description</p>
 						</div>
 					</div>
@@ -104,7 +104,7 @@ onMounted(()=>{
 					<div class="teams__view--container-cards__card--description">
 						<img src="@/assets/img/drake2.webp" class="teams__view--container-cards__card--img" />
 						<div class="description__content">
-							<p>Team title</p>
+							<h4 class="title">Título del equipo</h4>
 							<p>team description</p>
 						</div>
 					</div>
@@ -122,7 +122,7 @@ onMounted(()=>{
 					<div class="teams__view--container-cards__card--description">
 						<img src="@/assets/img/drake2.webp" class="teams__view--container-cards__card--img" />
 						<div class="description__content">
-							<p>Team title</p>
+							<h4 class="title">Título del equipo</h4>
 							<p>team description</p>
 						</div>
 					</div>
@@ -140,7 +140,7 @@ onMounted(()=>{
 					<div class="teams__view--container-cards__card--description">
 						<img src="@/assets/img/drake2.webp" class="teams__view--container-cards__card--img" />
 						<div class="description__content">
-							<p>Team title</p>
+							<h4 class="title">Título del equipo</h4>
 							<p>team description</p>
 						</div>
 					</div>
@@ -158,7 +158,7 @@ onMounted(()=>{
 					<div class="teams__view--container-cards__card--description">
 						<img src="@/assets/img/drake2.webp" class="teams__view--container-cards__card--img" />
 						<div class="description__content">
-							<p>Team title</p>
+							<h4 class="title">Título del equipo</h4>
 							<p>team description</p>
 						</div>
 					</div>
@@ -176,7 +176,7 @@ onMounted(()=>{
 					<div class="teams__view--container-cards__card--description">
 						<img src="@/assets/img/drake2.webp" class="teams__view--container-cards__card--img" />
 						<div class="description__content">
-							<p>Team title</p>
+							<h4 class="title">Título del equipo</h4>
 							<p>team description</p>
 						</div>
 					</div>
@@ -287,8 +287,8 @@ onMounted(()=>{
 					left: 0;
 					width: 100%;
 					border-radius: 12px;
-					border:1px solid #fff1;
-					backdrop-filter: blur(10px);
+					border:1px solid #0002;
+					backdrop-filter: blur(5px);
 					color: #fff;
 					overflow: hidden;
 					
@@ -306,11 +306,19 @@ onMounted(()=>{
 						width: 100%;
 						background:#0009;
 						backdrop-filter: blur(10px);
+						box-shadow: 0 0 10px #0009;
 						left: 0;
 						padding: 20px;
 						padding-top:10px;
-						font-weight: 500;
-						letter-spacing: 1px;
+						p{
+							font-size: 13px;
+							color: var(--color-primary);
+							font-weight: 400;
+						}
+						.title{
+							font-weight: 600;
+							font-size: 17px;
+						}
 					}
 				}
 			}
