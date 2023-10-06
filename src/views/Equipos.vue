@@ -192,6 +192,7 @@ onMounted(()=>{
 	justify-content: center;
 	width: 100%;
 	font-family: 'Rajdhani';
+	background: #111;
 
 	&--container {
 		width: 100%;
@@ -211,11 +212,13 @@ onMounted(()=>{
 			padding: 10px;
 			gap: 20px;
 			justify-content: center;
+			background:#0004;
+			border-radius: 10px;
 
 			&__card {
 				flex: 1;
 				min-width: 250px;
-				max-width: 280px;
+				max-width: 320px;
 				height: 300px;
 				position: relative;
 				cursor: pointer;
