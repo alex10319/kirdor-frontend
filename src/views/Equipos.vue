@@ -212,7 +212,7 @@ onMounted(()=>{
 			padding: 10px;
 			gap: 20px;
 			justify-content: center;
-			background:#0004;
+			background:#2229;
 			border-radius: 10px;
 
 			&__card {
