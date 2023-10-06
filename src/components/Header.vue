@@ -57,7 +57,9 @@ onBeforeUnmount(() => {
                             <li class="nav-li" @click="router.push('/comunidad')"><p>Comunidad</p></li>
                             <li class="nav-li" @click="router.push('/torneos')"><p>Torneos</p></li>
                             <li class="nav-li" @click="router.push('/soporte')"><p>Soporte</p></li>
-                            <li class="nav-li" @click="router.push('/juegos')"><p>Listado de Juegos</p></li>
+                            <li class="nav-li" @click="router.push('/juegos')"><p>Juegos</p></li>
+                            <li class="nav-li" @click="router.push('/juegos')"><p>Ranking</p></li>
+                            <li class="nav-li" @click="router.push('/equipos')"><p>Equipos</p></li>
                         </ul>
                     </nav>
                 </div>

@@ -47,7 +47,7 @@
     font-weight: 700;
   }
 
-  a,p,span,label{
+  a,p,span,label,.history__table-header--item{
     font-family: 'Rajdhani';
     text-decoration: none;
   }
@@ -412,7 +412,7 @@
   /*index--about section*/
   .about--container{
     width: 100%;
-    height: 90vh;
+    height: 100%;
     position: relative;
   }
   .about-items-container{

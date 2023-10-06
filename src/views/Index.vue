@@ -2,6 +2,7 @@
 // @ is an alias to /src
 import {ref,onMounted} from 'vue';
 import Header from '@/components/Header.vue';
+import Glider from 'glider-js';
 import Footer from '@/components/Footer.vue';
 
   const gliderInstance = ref<any>(null);
@@ -45,62 +46,39 @@ import Footer from '@/components/Footer.vue';
         }
       ]);
 
-  // const createGlider = () => {
-  //     gliderInstance.value = new Glider(document.querySelector('.glider'), {
-  //       slidesToShow: 4.5,
-  //       slidesToScroll: 4.5,
-  //       draggable: true,
-  //       dots: '.dots',
-  //       arrows: {
-  //         prev: '.glider-prev',
-  //         next: '.glider-next'
-  //       }
-  //     });
-  //     gliderInstance2.value = new Glider(document.querySelector('.about-slider'), {
-  //       slidesToShow: 1,
-  //       slidesToScroll: 1,
-  //       draggable: true,
-  //       dots: '.dots',
-  //       autoplay: {
-  //         delay: 500, // Set the delay between slide transitions (in milliseconds)
-  //         disableOnInteraction: false
-  //       },
-  //       arrows: {
-  //         prev: '.games-arrow-left',
-  //         next: '.games-arrow-right'
-  //       }
-  //     });
-  // }
-  // const sliderAuto = (slider:any, miliseconds:any,index:any) => {
-  //     const slidesCount = slider.track.childElementCount;
-  //     let slideTimeout:any = null;
-  //     let nextIndex = index;
-
-  //     function slide () {
-  //       slideTimeout = setTimeout(
-  //         function () {
-  //           if (nextIndex >= slidesCount ) {
-  //             nextIndex = 0;
-  //           }
-  //           slider.scrollItem(nextIndex++);
-  //         },
-  //         miliseconds
-  //       );
-  //     }
-
-  //     slider.ele.addEventListener('glider-animated', function() {
-  //       window.clearInterval(slideTimeout);
-  //       slide();
-  //     });
-
-  //     slide();
-  // }
+  const createGlider = () => {
+      gliderInstance.value = new Glider(document.querySelector('.glider'), {
+        slidesToShow: 4.5,
+        slidesToScroll: 4.5,
+        draggable: true,
+        dots: '.dots',
+        arrows: {
+          prev: '.glider-prev',
+          next: '.glider-next'
+        }
+      });
+      gliderInstance2.value = new Glider(document.querySelector('.about-slider'), {
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        draggable: true,
+        dots: '.dots',
+        autoplay: {
+          delay: 500, // Set the delay between slide transitions (in milliseconds)
+          disableOnInteraction: false
+        },
+        arrows: {
+          prev: '.games-arrow-left',
+          next: '.games-arrow-right'
+        }
+      });
+  }
 
   onMounted(()=>{
-    // createGlider(); // Create the Glider when the component mounts
-
-    // sliderAuto(gliderInstance, 5000,4)
-    // sliderAuto(gliderInstance2, 5000,1)
+    if (gliderInstance.value) {
+        gliderInstance.destroy(); // Destroy the Glider instance
+        gliderInstance.value = null; // Reset the reference
+      }
+    createGlider(); // Create the Glider when the component mounts
   });
 </script>
 
